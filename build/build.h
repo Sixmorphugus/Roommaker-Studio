@@ -1,2 +1,2 @@
 #pragma once
-#define RMS_BUILD 0
+#define RMS_BUILD 1

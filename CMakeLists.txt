@@ -40,7 +40,7 @@ set(Roommaker_Studio_SFML_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/SFML/inclu
 add_executable(Roommaker_Studio ${Roommaker_Studio_FILES})
 include_directories(${Roommaker_Studio_INCLUDE_FOLDERS})
 
-target_compile_definitions(Roommaker_Studio PRIVATE Roommaker_StudioDLL_Export) # tell Roommaker_Studio's header files that they are exporting functions, not importing them
+target_compile_definitions(Roommaker_Studio PRIVATE RMSDLL_Export) # tell Roommaker_Studio's header files that they are exporting functions, not importing them
 
 # set flags for the engine to compile properly
 if(MSVC)

@@ -1,6 +1,7 @@
 # ROOMMAKER STUDIO
-A Gamemaker Studio 2 room editor featuring:
+A Gamemaker Studio 2 room editor. _Work in progress._
 
+The todo list so far:
 - GMS2 Project Mirroring with cereal as the importer/exporter
 	- Base
 		- Base GM resource

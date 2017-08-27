@@ -88,7 +88,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>RMSDLL_Export;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -155,7 +155,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -169,10 +169,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;RMSDLL_Export;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -221,7 +221,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
       <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -235,10 +235,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;RMSDLL_Export;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -287,7 +287,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
       <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -301,10 +301,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;RMSDLL_Export;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -407,15 +407,21 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerObject.h" />
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerProject.h" />
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerRoom.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GM.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMObject.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMRoom.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMSprite.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMTileSet.h" />
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\Project.h" />
     <ClInclude Include="D:\Repos\Roommaker_Studio\include\Platform\Platform.h" />
     <ClInclude Include="D:\Repos\Roommaker_Studio\include\Platform\PlatformDeduction.h" />
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Editor\TempMain.cpp"  />
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerObject.cpp"  />
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerProject.cpp"  />
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerRoom.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GM.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMObject.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMRoom.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMSprite.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMTileSet.cpp"  />
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\Project.cpp"  />
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\PlatformUniversal.cpp"  />
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\PlatformWindows.cpp"  />
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\platformLinux.cpp"  />

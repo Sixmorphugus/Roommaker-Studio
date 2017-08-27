@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:35:55.
+Build started 27/08/2017 23:09:13.
 Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\3.8.0-rc2\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -35,7 +35,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.51
+Time Elapsed 00:00:00.62
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:35:56.
+Build started 27/08/2017 23:09:13.
 Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\3.8.0-rc2\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -80,7 +80,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.52
+Time Elapsed 00:00:00.55
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -92,153 +92,153 @@ The CXX compiler identification is MSVC, found in "D:/Repos/Roommaker_Studio/bui
 Determining if the C compiler works passed with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a7a77.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_a8a90.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:35:56.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_a7a77.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:14.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_a8a90.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_a7a77.dir\Debug\".
+  Creating directory "cmTC_a8a90.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_a7a77.dir\Debug\cmTC_a7a77.tlog\".
+  Creating directory "cmTC_a8a90.dir\Debug\cmTC_a8a90.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_a7a77.dir\Debug\cmTC_a7a77.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_a8a90.dir\Debug\cmTC_a8a90.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a7a77.dir\Debug\\" /Fd"cmTC_a7a77.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a8a90.dir\Debug\\" /Fd"cmTC_a8a90.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCCompiler.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a7a77.dir\Debug\\" /Fd"cmTC_a7a77.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a8a90.dir\Debug\\" /Fd"cmTC_a8a90.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCCompiler.c
   testCCompiler.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_a7a77.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_a7a77.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_a7a77.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_a7a77.dir\Debug\testCCompiler.obj
-  cmTC_a7a77.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_a7a77.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_a8a90.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_a8a90.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_a8a90.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_a8a90.dir\Debug\testCCompiler.obj
+  cmTC_a8a90.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_a8a90.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_a7a77.dir\Debug\cmTC_a7a77.tlog\unsuccessfulbuild".
-  Touching "cmTC_a7a77.dir\Debug\cmTC_a7a77.tlog\cmTC_a7a77.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_a7a77.vcxproj" (default targets).
+  Deleting file "cmTC_a8a90.dir\Debug\cmTC_a8a90.tlog\unsuccessfulbuild".
+  Touching "cmTC_a8a90.dir\Debug\cmTC_a8a90.tlog\cmTC_a8a90.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_a8a90.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.57
+Time Elapsed 00:00:00.80
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_02a16.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_54177.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:35:57.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_02a16.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:15.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_54177.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_02a16.dir\Debug\".
+  Creating directory "cmTC_54177.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_02a16.dir\Debug\cmTC_02a16.tlog\".
+  Creating directory "cmTC_54177.dir\Debug\cmTC_54177.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_02a16.dir\Debug\cmTC_02a16.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_54177.dir\Debug\cmTC_54177.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_02a16.dir\Debug\\" /Fd"cmTC_02a16.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_54177.dir\Debug\\" /Fd"cmTC_54177.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_02a16.dir\Debug\\" /Fd"cmTC_02a16.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_54177.dir\Debug\\" /Fd"cmTC_54177.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
   CMakeCCompilerABI.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_02a16.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_02a16.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_02a16.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_02a16.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_02a16.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_02a16.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_54177.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_54177.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_54177.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_54177.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_54177.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_54177.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_02a16.dir\Debug\cmTC_02a16.tlog\unsuccessfulbuild".
-  Touching "cmTC_02a16.dir\Debug\cmTC_02a16.tlog\cmTC_02a16.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_02a16.vcxproj" (default targets).
+  Deleting file "cmTC_54177.dir\Debug\cmTC_54177.tlog\unsuccessfulbuild".
+  Touching "cmTC_54177.dir\Debug\cmTC_54177.tlog\cmTC_54177.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_54177.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.56
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_608f4.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 27/08/2017 23:09:16.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_608f4.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_608f4.dir\Debug\".
+  Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_608f4.dir\Debug\cmTC_608f4.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_608f4.dir\Debug\cmTC_608f4.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_608f4.dir\Debug\\" /Fd"cmTC_608f4.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_608f4.dir\Debug\\" /Fd"cmTC_608f4.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  testCXXCompiler.cxx
+  
+Link:
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_608f4.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_608f4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_608f4.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_608f4.dir\Debug\testCXXCompiler.obj
+  cmTC_608f4.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_608f4.exe
+FinalizeBuildStatus:
+  Deleting file "cmTC_608f4.dir\Debug\cmTC_608f4.tlog\unsuccessfulbuild".
+  Touching "cmTC_608f4.dir\Debug\cmTC_608f4.tlog\cmTC_608f4.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_608f4.vcxproj" (default targets).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.56
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_6ae61.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 27/08/2017 23:09:17.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_6ae61.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTC_6ae61.dir\Debug\".
+  Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTC_6ae61.dir\Debug\cmTC_6ae61.tlog\".
+InitializeBuildStatus:
+  Creating "cmTC_6ae61.dir\Debug\cmTC_6ae61.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6ae61.dir\Debug\\" /Fd"cmTC_6ae61.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6ae61.dir\Debug\\" /Fd"cmTC_6ae61.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
+  CMakeCXXCompilerABI.cpp
+  
+Link:
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_6ae61.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_6ae61.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_6ae61.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_6ae61.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_6ae61.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_6ae61.exe
+FinalizeBuildStatus:
+  Deleting file "cmTC_6ae61.dir\Debug\cmTC_6ae61.tlog\unsuccessfulbuild".
+  Touching "cmTC_6ae61.dir\Debug\cmTC_6ae61.tlog\cmTC_6ae61.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_6ae61.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
 Time Elapsed 00:00:00.57
-
-
-Determining if the CXX compiler works passed with the following output:
-Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_912b1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 27/08/2017 19:35:58.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_912b1.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_912b1.dir\Debug\".
-  Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_912b1.dir\Debug\cmTC_912b1.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_912b1.dir\Debug\cmTC_912b1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_912b1.dir\Debug\\" /Fd"cmTC_912b1.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_912b1.dir\Debug\\" /Fd"cmTC_912b1.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  testCXXCompiler.cxx
-  
-Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_912b1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_912b1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_912b1.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_912b1.dir\Debug\testCXXCompiler.obj
-  cmTC_912b1.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_912b1.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_912b1.dir\Debug\cmTC_912b1.tlog\unsuccessfulbuild".
-  Touching "cmTC_912b1.dir\Debug\cmTC_912b1.tlog\cmTC_912b1.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_912b1.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.59
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_e14d5.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
-Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 27/08/2017 19:35:59.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_e14d5.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_e14d5.dir\Debug\".
-  Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_e14d5.dir\Debug\cmTC_e14d5.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_e14d5.dir\Debug\cmTC_e14d5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e14d5.dir\Debug\\" /Fd"cmTC_e14d5.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e14d5.dir\Debug\\" /Fd"cmTC_e14d5.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
-  CMakeCXXCompilerABI.cpp
-  
-Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_e14d5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_e14d5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_e14d5.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_e14d5.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_e14d5.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_e14d5.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_e14d5.dir\Debug\cmTC_e14d5.tlog\unsuccessfulbuild".
-  Touching "cmTC_e14d5.dir\Debug\cmTC_e14d5.tlog\cmTC_e14d5.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_e14d5.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.58
 
 
 
@@ -246,39 +246,39 @@ Time Elapsed 00:00:00.58
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_c2119.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_693d5.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:35:59.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_c2119.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:17.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_693d5.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_c2119.dir\Debug\".
+  Creating directory "cmTC_693d5.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_c2119.dir\Debug\cmTC_c2119.tlog\".
+  Creating directory "cmTC_693d5.dir\Debug\cmTC_693d5.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_c2119.dir\Debug\cmTC_c2119.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_693d5.dir\Debug\cmTC_693d5.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c2119.dir\Debug\\" /Fd"cmTC_c2119.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\feature_tests.cxx
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_693d5.dir\Debug\\" /Fd"cmTC_693d5.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\feature_tests.cxx
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c2119.dir\Debug\\" /Fd"cmTC_c2119.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\feature_tests.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_693d5.dir\Debug\\" /Fd"cmTC_693d5.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\feature_tests.cxx
   feature_tests.cxx
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_c2119.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_c2119.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_c2119.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_c2119.dir\Debug\feature_tests.obj
-  cmTC_c2119.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_c2119.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_693d5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_693d5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_693d5.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_693d5.dir\Debug\feature_tests.obj
+  cmTC_693d5.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_693d5.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_c2119.dir\Debug\cmTC_c2119.tlog\unsuccessfulbuild".
-  Touching "cmTC_c2119.dir\Debug\cmTC_c2119.tlog\cmTC_c2119.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_c2119.vcxproj" (default targets).
+  Deleting file "cmTC_693d5.dir\Debug\cmTC_693d5.tlog\unsuccessfulbuild".
+  Touching "cmTC_693d5.dir\Debug\cmTC_693d5.tlog\cmTC_693d5.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_693d5.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:00.55
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -339,33 +339,33 @@ Time Elapsed 00:00:00.56
 Determining if the include file sys/types.h exists passed with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_f2343.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_34dde.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:36:00.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_f2343.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:18.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_34dde.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_f2343.dir\Debug\".
+  Creating directory "cmTC_34dde.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_f2343.dir\Debug\cmTC_f2343.tlog\".
+  Creating directory "cmTC_34dde.dir\Debug\cmTC_34dde.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_f2343.dir\Debug\cmTC_f2343.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_34dde.dir\Debug\cmTC_34dde.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f2343.dir\Debug\\" /Fd"cmTC_f2343.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_34dde.dir\Debug\\" /Fd"cmTC_34dde.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f2343.dir\Debug\\" /Fd"cmTC_f2343.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_34dde.dir\Debug\\" /Fd"cmTC_34dde.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_f2343.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_f2343.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_f2343.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_f2343.dir\Debug\CheckIncludeFile.obj
-  cmTC_f2343.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_f2343.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_34dde.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_34dde.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_34dde.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_34dde.dir\Debug\CheckIncludeFile.obj
+  cmTC_34dde.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_34dde.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_f2343.dir\Debug\cmTC_f2343.tlog\unsuccessfulbuild".
-  Touching "cmTC_f2343.dir\Debug\cmTC_f2343.tlog\cmTC_f2343.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_f2343.vcxproj" (default targets).
+  Deleting file "cmTC_34dde.dir\Debug\cmTC_34dde.tlog\unsuccessfulbuild".
+  Touching "cmTC_34dde.dir\Debug\cmTC_34dde.tlog\cmTC_34dde.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_34dde.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
@@ -377,71 +377,71 @@ Time Elapsed 00:00:00.57
 Determining if the include file stdint.h exists passed with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_4da39.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_dae37.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:36:01.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_4da39.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:19.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_dae37.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_4da39.dir\Debug\".
+  Creating directory "cmTC_dae37.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_4da39.dir\Debug\cmTC_4da39.tlog\".
+  Creating directory "cmTC_dae37.dir\Debug\cmTC_dae37.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_4da39.dir\Debug\cmTC_4da39.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_dae37.dir\Debug\cmTC_dae37.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4da39.dir\Debug\\" /Fd"cmTC_4da39.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dae37.dir\Debug\\" /Fd"cmTC_dae37.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4da39.dir\Debug\\" /Fd"cmTC_4da39.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_dae37.dir\Debug\\" /Fd"cmTC_dae37.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_4da39.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_4da39.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_4da39.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_4da39.dir\Debug\CheckIncludeFile.obj
-  cmTC_4da39.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_4da39.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_dae37.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_dae37.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_dae37.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_dae37.dir\Debug\CheckIncludeFile.obj
+  cmTC_dae37.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_dae37.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_4da39.dir\Debug\cmTC_4da39.tlog\unsuccessfulbuild".
-  Touching "cmTC_4da39.dir\Debug\cmTC_4da39.tlog\cmTC_4da39.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_4da39.vcxproj" (default targets).
+  Deleting file "cmTC_dae37.dir\Debug\cmTC_dae37.tlog\unsuccessfulbuild".
+  Touching "cmTC_dae37.dir\Debug\cmTC_dae37.tlog\cmTC_dae37.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_dae37.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:00.55
 
 
 Determining if the include file stddef.h exists passed with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_b5284.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_afc77.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:36:01.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_b5284.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:19.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_afc77.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_b5284.dir\Debug\".
+  Creating directory "cmTC_afc77.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_b5284.dir\Debug\cmTC_b5284.tlog\".
+  Creating directory "cmTC_afc77.dir\Debug\cmTC_afc77.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_b5284.dir\Debug\cmTC_b5284.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_afc77.dir\Debug\cmTC_afc77.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b5284.dir\Debug\\" /Fd"cmTC_b5284.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_afc77.dir\Debug\\" /Fd"cmTC_afc77.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b5284.dir\Debug\\" /Fd"cmTC_b5284.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_afc77.dir\Debug\\" /Fd"cmTC_afc77.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
   CheckIncludeFile.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_b5284.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_b5284.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_b5284.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_b5284.dir\Debug\CheckIncludeFile.obj
-  cmTC_b5284.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_b5284.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_afc77.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_afc77.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_afc77.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_afc77.dir\Debug\CheckIncludeFile.obj
+  cmTC_afc77.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_afc77.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_b5284.dir\Debug\cmTC_b5284.tlog\unsuccessfulbuild".
-  Touching "cmTC_b5284.dir\Debug\cmTC_b5284.tlog\cmTC_b5284.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_b5284.vcxproj" (default targets).
+  Deleting file "cmTC_afc77.dir\Debug\cmTC_afc77.tlog\unsuccessfulbuild".
+  Touching "cmTC_afc77.dir\Debug\cmTC_afc77.tlog\cmTC_afc77.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_afc77.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
@@ -453,33 +453,33 @@ Time Elapsed 00:00:00.54
 Determining size of void* passed with the following output:
 Change Dir: D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_86d4f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
+Run Build Command:"D:\More Program Files\Microsoft Visual Studio\2017\Community/MSBuild/15.0/Bin/MSBuild.exe" "cmTC_4eae6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=15.0"
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 27/08/2017 19:36:02.
-Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_86d4f.vcxproj" on node 1 (default targets).
+Build started 27/08/2017 23:09:20.
+Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_4eae6.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_86d4f.dir\Debug\".
+  Creating directory "cmTC_4eae6.dir\Debug\".
   Creating directory "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_86d4f.dir\Debug\cmTC_86d4f.tlog\".
+  Creating directory "cmTC_4eae6.dir\Debug\cmTC_4eae6.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_86d4f.dir\Debug\cmTC_86d4f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_4eae6.dir\Debug\cmTC_4eae6.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_86d4f.dir\Debug\\" /Fd"cmTC_86d4f.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\CL.exe /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4eae6.dir\Debug\\" /Fd"cmTC_4eae6.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.11.25506 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_86d4f.dir\Debug\\" /Fd"cmTC_86d4f.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4eae6.dir\Debug\\" /Fd"cmTC_4eae6.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue D:\Repos\Roommaker_Studio\build\CMakeFiles\CheckTypeSize\SIZEOF_VOID_PTR.c
   SIZEOF_VOID_PTR.c
   
 Link:
-  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_86d4f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_86d4f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_86d4f.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_86d4f.dir\Debug\SIZEOF_VOID_PTR.obj
-  cmTC_86d4f.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_86d4f.exe
+  D:\More Program Files\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_4eae6.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_4eae6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Repos/Roommaker_Studio/build/CMakeFiles/CMakeTmp/Debug/cmTC_4eae6.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_4eae6.dir\Debug\SIZEOF_VOID_PTR.obj
+  cmTC_4eae6.vcxproj -> D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\Debug\cmTC_4eae6.exe
 FinalizeBuildStatus:
-  Deleting file "cmTC_86d4f.dir\Debug\cmTC_86d4f.tlog\unsuccessfulbuild".
-  Touching "cmTC_86d4f.dir\Debug\cmTC_86d4f.tlog\cmTC_86d4f.lastbuildstate".
-Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_86d4f.vcxproj" (default targets).
+  Deleting file "cmTC_4eae6.dir\Debug\cmTC_4eae6.tlog\unsuccessfulbuild".
+  Touching "cmTC_4eae6.dir\Debug\cmTC_4eae6.tlog\cmTC_4eae6.lastbuildstate".
+Done Building Project "D:\Repos\Roommaker_Studio\build\CMakeFiles\CMakeTmp\cmTC_4eae6.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)

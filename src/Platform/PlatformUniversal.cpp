@@ -11,34 +11,6 @@ string RMSPlatform::GetLastLogged() {
 	return lastLogged;
 }
 
-bool RMSPlatform::LoadTextFile(string & fileData, const string& fileName)
-{
-	ifstream is(fileName);
-
-	if (is.bad())
-		return false;
-
-	string str((istreambuf_iterator<char>(is)), istreambuf_iterator<char>());
-	is.close();
-
-	fileData = str;
-
-	return true;
-}
-
-bool RMSPlatform::SaveTextFile(const string & fileData, const string & fileName)
-{
-	ofstream os(fileName);
-
-	if (os.bad())
-		return false;
-
-	os << fileData;
-	os.close();
-
-	return true;
-}
-
 void RMSPlatform::Log(string info, bool nl)
 {
 	// Message

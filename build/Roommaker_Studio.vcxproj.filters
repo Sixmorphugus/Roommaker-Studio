@@ -2,53 +2,86 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Editor\TempMain.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\Editor</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GM.cpp">
+      <Filter>src\Gamemaker</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerProject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMObject.cpp">
+      <Filter>src\Gamemaker</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GamemakerRoom.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMRoom.cpp">
+      <Filter>src\Gamemaker</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMSprite.cpp">
+      <Filter>src\Gamemaker</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\GMTileSet.cpp">
+      <Filter>src\Gamemaker</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Repos\Roommaker_Studio\src\Gamemaker\Project.cpp">
+      <Filter>src\Gamemaker</Filter>
     </ClCompile>
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\PlatformUniversal.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\PlatformWindows.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="D:\Repos\Roommaker_Studio\src\Platform\platformLinux.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src\Platform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GM.h">
+      <Filter>include\Gamemaker</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerProject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMObject.h">
+      <Filter>include\Gamemaker</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GamemakerRoom.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMRoom.h">
+      <Filter>include\Gamemaker</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMSprite.h">
+      <Filter>include\Gamemaker</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\GMTileSet.h">
+      <Filter>include\Gamemaker</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Repos\Roommaker_Studio\include\Gamemaker\Project.h">
+      <Filter>include\Gamemaker</Filter>
     </ClInclude>
     <ClInclude Include="D:\Repos\Roommaker_Studio\include\Platform\Platform.h">
-      <Filter>Header Files</Filter>
+      <Filter>include\Platform</Filter>
     </ClInclude>
     <ClInclude Include="D:\Repos\Roommaker_Studio\include\Platform\PlatformDeduction.h">
-      <Filter>Header Files</Filter>
+      <Filter>include\Platform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Repos\Roommaker_Studio\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{2AD315B1-6A12-3E78-BD63-6427B910D568}</UniqueIdentifier>
+    <Filter Include="include">
+      <UniqueIdentifier>{C6E1B52A-923F-3690-82C8-4FFE46525B29}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{E7AF78FE-9DDB-3D3E-BACF-85C2EE2CA9EB}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{E2272AB2-694D-367F-AA16-12623E6BC277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Gamemaker">
+      <UniqueIdentifier>{E70DA2E6-8840-35DF-989A-3B0602AE41F8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Platform">
+      <UniqueIdentifier>{9AA001CE-BDCE-3D2C-AE3C-D4DA0E06EC13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Editor">
+      <UniqueIdentifier>{E27B545F-D603-3997-9E52-A38CBFF1EDF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gamemaker">
+      <UniqueIdentifier>{89F0F54C-9B90-312F-92B7-371D8FBFC04D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platform">
+      <UniqueIdentifier>{2E0C1058-A5AD-34EE-AE45-C8E1324391DF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

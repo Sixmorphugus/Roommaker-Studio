@@ -20,6 +20,13 @@ file(GLOB Roommaker_Studio_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*/*.cpp"
 )
 
+foreach(source IN LISTS Roommaker_Studio_FILES)
+	get_filename_component(source_path "${source}" PATH)
+	string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "" source_path "${source_path}")
+    string(REPLACE "/" "\\" source_path "${source_path}")
+    source_group("${source_path}" FILES "${source}")
+endforeach()
+
 # make everything output to the same place (we do not have to copy sfml's libs to where Roommaker_Studio is if Roommaker_Studio already outputs next to them)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -32,6 +39,7 @@ add_subdirectory(extlibs) # find all externals
 # options for externals - use all sfml libs but network+audio
 set(Roommaker_Studio_SFML_LIB sfml-main sfml-system sfml-window sfml-graphics)
 set(Roommaker_Studio_SFML_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/SFML/include)
+set(Roommaker_Studio_CEREAL_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/cereal)
 
 ######################
 # COMPILE DATA
@@ -52,6 +60,7 @@ endif()
 # Link libraries - include required files
 target_link_libraries(Roommaker_Studio ${Roommaker_Studio_SFML_LIB})
 include_directories(${Roommaker_Studio_SFML_INCLUDE})
+include_directories(${Roommaker_Studio_CEREAL_INCLUDE})
 
 # On any UNIX os, Roommaker_Studio needs libdl
 if(UNIX)

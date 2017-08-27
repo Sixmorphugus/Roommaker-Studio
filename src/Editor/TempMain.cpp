@@ -1,11 +1,15 @@
 // Copyright Chris Sixsmith 2017. All Rights Reserved.
 
+// stdlib
+#include "conio.h"
+
+// rms
 #include "Platform.h"
 #include "build.h"
-#include "conio.h"
 
 using namespace std;
 
+// Temporary main function; Loads in Room JSON data and displays it
 int main(int argc, char* argv[])
 {
 	RMSPlatform::Init();

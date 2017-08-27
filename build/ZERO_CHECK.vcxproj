@@ -67,7 +67,7 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -77,7 +77,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -87,7 +87,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -97,7 +97,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Repos\Roommaker_Studio\include\Core;D:\Repos\Roommaker_Studio\include\Gamemaker;D:\Repos\Roommaker_Studio\include\Platform;D:\Repos\Roommaker_Studio\extlibs\SFML\include;D:\Repos\Roommaker_Studio\extlibs\cereal;D:\Repos\Roommaker_Studio\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

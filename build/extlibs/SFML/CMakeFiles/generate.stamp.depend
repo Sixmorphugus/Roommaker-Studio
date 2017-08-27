@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+D:/Repos/Roommaker_Studio/extlibs/SFML/CMakeLists.txt
+D:/Repos/Roommaker_Studio/extlibs/SFML/cmake/Config.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindPkgConfig.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindPackageMessage.cmake

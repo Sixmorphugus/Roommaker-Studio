@@ -1,0 +1,2 @@
+#pragma once
+#define RMS_BUILD @GIT_VERSION@

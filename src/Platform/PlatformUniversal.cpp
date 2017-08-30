@@ -29,7 +29,7 @@ void RMSPlatform::DiagnosticLog(LOGTYPE type, string file, string func, int line
 	string typewords[] = { "INFO", "WARNING", "FATAL", "CHAISCRIPT" };
 
 	// Level and source code information
-	#if RMS_PLATFORM_LOGINFOALLOWED
+	#ifdef _DEBUG
 	WriteToLogfile(typewords[type] + "[" + file + ":" + to_string(line) + " (" + func + ")]: " + info + (nl ? "\n" : ""));
 	#else
 	WriteToLogfile(type + "[unavailable]: " + info + (nl ? "\n" : ""));
@@ -52,4 +52,32 @@ void RMSPlatform::DiagnosticError(string file, string func, int line, string inf
 
 	// crash
 	abort();
+}
+
+bool RMSPlatform::LoadTextFile(string & fileData, const string& fileName)
+{
+	ifstream is(fileName);
+
+	if (is.bad())
+		return false;
+
+	string str((istreambuf_iterator<char>(is)), istreambuf_iterator<char>());
+	is.close();
+
+	fileData = str;
+
+	return true;
+}
+
+bool RMSPlatform::SaveTextFile(const string & fileData, const string & fileName)
+{
+	ofstream os(fileName);
+
+	if (os.bad())
+		return false;
+
+	os << fileData;
+	os.close();
+
+	return true;
 }

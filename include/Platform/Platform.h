@@ -35,6 +35,9 @@ namespace RMSPlatform {
 	RMSDLL bool GetConsoleInput(std::string &input);
 	RMSDLL void ClearConsoleInput(bool eraseCompletely = true);
 	RMSDLL std::string GetLastLogged();
+
+	RMSDLL bool LoadTextFile(std::string & fileData, const std::string& fileName);
+	RMSDLL bool SaveTextFile(const std::string & fileData, const std::string & fileName);
 }
 
 // macros

@@ -39,7 +39,7 @@ add_subdirectory(extlibs) # find all externals
 # options for externals - use all sfml libs but network+audio
 set(Roommaker_Studio_SFML_LIB sfml-main sfml-system sfml-window sfml-graphics)
 set(Roommaker_Studio_SFML_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/SFML/include)
-set(Roommaker_Studio_CEREAL_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/cereal)
+set(Roommaker_Studio_RAPIDJSON_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/rapidjson)
 
 ######################
 # COMPILE DATA
@@ -60,7 +60,7 @@ endif()
 # Link libraries - include required files
 target_link_libraries(Roommaker_Studio ${Roommaker_Studio_SFML_LIB})
 include_directories(${Roommaker_Studio_SFML_INCLUDE})
-include_directories(${Roommaker_Studio_CEREAL_INCLUDE})
+include_directories(${Roommaker_Studio_RAPIDJSON_INCLUDE})
 
 # On any UNIX os, Roommaker_Studio needs libdl
 if(UNIX)

@@ -3,6 +3,8 @@
 #include "Project2.h"
 #include "Platform.h"
 #include "Folder.h"
+#include "Object.h"
+#include "Sprite.h"
 
 // rapidjson
 #include "rapidjson/document.h"
@@ -72,11 +74,42 @@ GMProject2::GMProject2(string ProjectPath)
 				LoadResource(Key, Path, Type);
 			}
 
-			// Parent anything that's unparented to ourselves.
+			// Parent things properly
 			for (auto& Resource : m_Resources)
 			{
-				Parent(Resource.get());
-				m_ResourcesTopLevel.push_back(Resource.get());
+				Resource->Init();
+			}
+
+			// Find the group "Default". That's the one that contains all the main filters.
+			for (auto& Resource : m_Resources)
+			{
+				GMFolder* Folder = dynamic_cast<GMFolder*>(Resource.get());
+
+				if (Folder)
+				{
+					if  (Folder->IsDefaultFolder())
+					{
+						for (unsigned i = 0; i < Folder->GetNumResources(); i++)
+						{
+							GMResource* ResourceResource = Folder->GetResource(i);
+
+							// sorry about this
+							if (   ResourceResource->GetName() != "scripts"
+								&& ResourceResource->GetName() != "sounds"
+								&& ResourceResource->GetName() != "paths"
+								&& ResourceResource->GetName() != "shaders"
+								&& ResourceResource->GetName() != "fonts"
+								&& ResourceResource->GetName() != "timelines"
+								&& ResourceResource->GetName() != "notes"
+								&& ResourceResource->GetName() != "datafiles"
+								&& ResourceResource->GetName() != "extensions"
+								&& ResourceResource->GetName() != "options"
+								&& ResourceResource->GetName() != "configs"
+							)
+								m_ResourcesTopLevel.push_back(ResourceResource);
+						}
+					}
+				}
 			}
 
 			RMSPlatform::Log("\tBuilt resource tree.");
@@ -97,6 +130,17 @@ string GMProject2::GetProjectRoot()
 	return RMSPlatform::Dir(m_ProjectPath);
 }
 
+GMResource* GMProject2::FindResource(std::string m_Key)
+{
+	for (auto& Resource : m_Resources)
+	{
+		if (Resource->GetKey() == m_Key)
+			return Resource.get();
+	}
+
+	return nullptr;
+}
+
 unsigned GMProject2::GetNumResources()
 {
 	return m_ResourcesTopLevel.size();
@@ -109,12 +153,6 @@ GMResource* GMProject2::GetResource(unsigned i)
 
 void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Type)
 {
-	if (Type == Ignored)
-	{
-		//RMS_LogInfo("\tIgnoring " + Key);
-		return;
-	}
-
 	// Debug message
 	string ResTypeStr = "unknown";
 	switch (Type)
@@ -144,19 +182,22 @@ void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Ty
 	switch (Type)
 	{
 	case Object:
-		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		NewResource = std::make_shared<GMObject>(this, Key, RelativePath);
 		break;
 	case Room:
 		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
 		break;
 	case Sprite:
-		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		NewResource = std::make_shared<GMSprite>(this, Key, RelativePath);
 		break;
 	case TileSet:
 		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
 		break;
 	case Folder:
 		NewResource = std::make_shared<GMFolder>(this, Key, RelativePath);
+		break;
+	case Ignored:
+		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
 		break;
 	}
 

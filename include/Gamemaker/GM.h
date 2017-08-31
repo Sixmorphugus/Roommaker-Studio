@@ -43,6 +43,9 @@ public:
 	std::string GetName() { return m_Name; }
 	GMProject2* GetProject(); // Just to be safe, this isn't inline.
 	GMResourceContainer* GetParent(); // Same as above
+	virtual GMResourceType GetType() { return Ignored; }
+	virtual GMResourceType GetFilterType() { return GetType(); }
+	virtual void Init() {}
 
 	std::string GetRealPath();
 

@@ -11,6 +11,7 @@ GMResource::GMResource(GMProject2* Project, string Key, string DataPath)
 	m_DataPath = DataPath;
 	m_Project = Project;
 	m_Parent = Project;
+	m_Name = "N/A";
 }
 
 GMProject2 * GMResource::GetProject()

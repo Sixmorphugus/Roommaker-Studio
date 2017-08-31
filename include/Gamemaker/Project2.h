@@ -30,6 +30,8 @@ public:
 	std::string GetProjectRoot();
 	bool IsValid() { return m_Valid; }
 
+	GMResource* FindResource(std::string m_Key);
+
 	// Begin GMResourceContainer Interface
 	virtual unsigned GetNumResources();
 	virtual GMResource* GetResource(unsigned i);

@@ -10,13 +10,64 @@ using namespace std;
 GMFolder::GMFolder(GMProject2* Project, string Key, string DataPath)
 	: GMResource(Project, Key, DataPath)
 {
+	m_DefaultFolder = false;
+
+	string RealPath = GetRealPath();
+
+	// Let's read our datafile:
+	string JsonData;
+
+	bool Succ = RMSPlatform::LoadTextFile(JsonData, RealPath);
+
+	if (Succ)
+	{
+		try
+		{
+			// Try to read the doc
+			rapidjson::Document Doc;
+			Doc.Parse(JsonData.c_str());
+
+			// Find our name
+			assert(Doc["folderName"].IsString());
+			SetName(Doc["folderName"].GetString());
+
+			// Find our filtertype
+			assert(Doc["filterType"].IsString());
+
+			string TypeStr = Doc["filterType"].GetString();
+			m_FilterType = GMResourceType::Ignored;
+
+			if (TypeStr == "GMSprite")
+				m_FilterType = Sprite;
+			else if (TypeStr == "GMRoom")
+				m_FilterType = Room;
+			else if (TypeStr == "GMObject")
+				m_FilterType = Object;
+			else if (TypeStr == "GMTileSet")
+				m_FilterType = TileSet;
+
+			// Find if we're a default view
+			assert(Doc["isDefaultView"].IsBool());
+			m_DefaultFolder = Doc["isDefaultView"].GetBool();
+		}
+		catch (std::exception &e)
+		{
+			RMS_LogWarn("Exception thrown while reading \"" + RealPath + "\": \"" + e.what() + "\"");
+		}
+	}
+	else
+	{
+		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
+	}
+}
+
+void GMFolder::Init()
+{
 	vector<string> ChildIDs;
 	string RealPath = GetRealPath();
 
 	// Let's read our datafile:
-	RMSPlatform::Log("\t\tReal path is " + RealPath);
-
-	// Ok we need to read the entire JSON file
+	RMSPlatform::Log("\tParenting folder children " + RealPath);
 	string JsonData;
 
 	bool Succ = RMSPlatform::LoadTextFile(JsonData, RealPath);
@@ -42,7 +93,7 @@ GMFolder::GMFolder(GMProject2* Project, string Key, string DataPath)
 				{
 					for (auto& Resource : GetProject()->m_Resources)
 					{
-						if (Resource->GetKey() == Child.GetString())
+						if (Resource->GetKey() == Child.GetString() && Resource->GetParent() != this)
 						{
 							Parent(Resource.get());
 							m_Resources.push_back(Resource.get());
@@ -61,4 +112,3 @@ GMFolder::GMFolder(GMProject2* Project, string Key, string DataPath)
 		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
 	}
 }
-

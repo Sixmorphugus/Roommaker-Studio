@@ -71,6 +71,15 @@ GMProject2::GMProject2(string ProjectPath)
 				// We'll generate that later.
 				LoadResource(Key, Path, Type);
 			}
+
+			// Parent anything that's unparented to ourselves.
+			for (auto& Resource : m_Resources)
+			{
+				Parent(Resource.get());
+				m_ResourcesTopLevel.push_back(Resource.get());
+			}
+
+			RMSPlatform::Log("\tBuilt resource tree.");
 		}
 		catch (exception &e)
 		{

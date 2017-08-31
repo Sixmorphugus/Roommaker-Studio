@@ -32,10 +32,12 @@ int main(int argc, char* argv[])
 		RMS_LogWarn("! No GameMaker Studio 2 (.yyp) project file was provided, so analysis was aborted.");
 	}
 
-	// Print some information
 	RMSPlatform::Log("");
 
+	// Dump out the resource tree.
 	// TODO
+
+	RMSPlatform::Log("");
 
 	// Fin
 	if(yypProject != NULL)

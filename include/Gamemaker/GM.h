@@ -29,23 +29,33 @@ class RMSDLL GMResource
 private:
 	std::string m_Key;
 	std::string m_DataPath;
+	std::string m_Name;
 
 	GMProject2* m_Project;
+
+	class GMResourceContainer* m_Parent;
 
 public:
 	GMResource(GMProject2* Project, std::string Key, std::string DataPath);
 
 	std::string GetKey() { return m_Key; }
 	std::string GetDataPath() { return m_DataPath; }
+	std::string GetName() { return m_Name; }
 	GMProject2* GetProject(); // Just to be safe, this isn't inline.
+	GMResourceContainer* GetParent(); // Same as above
 
 	std::string GetRealPath();
+
+	void SetName(std::string Name) { m_Name = Name; }
+
+	friend GMResourceContainer;
 };
 
 /*
  GMResourceContainer
  Standardized GMResourceContainer.
- Not sure why I bothered. Oh well.
+ 
+ ONE REQUIREMENT: When you add things to your containment, CALL PARENT.
  */
 class RMSDLL GMResourceContainer
 {
@@ -58,4 +68,7 @@ public:
 	// Helper for finding if a folder contains something.
 	bool HasChild(GMResource* Memory);
 	bool HasChild(std::string Key);
+
+protected:
+	virtual void Parent(GMResource* Memory);
 };

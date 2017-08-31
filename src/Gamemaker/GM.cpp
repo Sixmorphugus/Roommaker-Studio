@@ -10,11 +10,17 @@ GMResource::GMResource(GMProject2* Project, string Key, string DataPath)
 	m_Key = Key;
 	m_DataPath = DataPath;
 	m_Project = Project;
+	m_Parent = Project;
 }
 
 GMProject2 * GMResource::GetProject()
 {
 	return m_Project;
+}
+
+GMResourceContainer* GMResource::GetParent()
+{
+	return m_Parent;
 }
 
 std::string GMResource::GetRealPath()
@@ -42,4 +48,9 @@ bool GMResourceContainer::HasChild(GMResource* Memory)
 	}
 
 	return false;
+}
+
+void GMResourceContainer::Parent(GMResource* Memory)
+{
+	Memory->m_Parent = this;
 }

@@ -37,6 +37,9 @@ public:
 
 	std::string GetKey() { return m_Key; }
 	std::string GetDataPath() { return m_DataPath; }
+	GMProject2* GetProject(); // Just to be safe, this isn't inline.
+
+	std::string GetRealPath();
 };
 
 /*
@@ -51,4 +54,8 @@ public:
 
 	virtual unsigned GetNumResources() = 0;
 	virtual GMResource* GetResource(unsigned i) = 0;
+
+	// Helper for finding if a folder contains something.
+	bool HasChild(GMResource* Memory);
+	bool HasChild(std::string Key);
 };

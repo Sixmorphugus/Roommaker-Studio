@@ -27,10 +27,13 @@ public:
 	GMProject2(std::string ProjectPath);
 
 	std::string GetProjectPath() { return m_ProjectPath; }
+	std::string GetProjectRoot();
 	bool IsValid() { return m_Valid; }
 
 	// Begin GMResourceContainer Interface
 	virtual unsigned GetNumResources();
 	virtual GMResource* GetResource(unsigned i);
 	// End
+
+	friend class GMFolder; // For book-keeping reasons, folder can access the private resource list.
 };

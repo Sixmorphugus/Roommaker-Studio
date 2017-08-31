@@ -24,6 +24,7 @@ namespace RMSPlatform {
 	RMSDLL void DiagnosticLog(LOGTYPE type, std::string file, std::string func, int line, std::string info, bool nl = true);
 	RMSDLL void DiagnosticError(std::string file, std::string func, int line, std::string info);
 
+	RMSDLL std::string Dir(std::string filePath);
 	RMSDLL std::vector<std::string> DirList(std::string path, bool includeExtra = false);
 	RMSDLL std::string RealPath(std::string path);
 	RMSDLL bool FileDelete(std::string in);

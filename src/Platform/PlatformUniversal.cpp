@@ -81,3 +81,9 @@ bool RMSPlatform::SaveTextFile(const string & fileData, const string & fileName)
 
 	return true;
 }
+
+string RMSPlatform::Dir(string filePath)
+{
+	size_t found = filePath.find_last_of("/\\");
+	return (filePath.substr(0, found));
+}

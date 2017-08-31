@@ -2,6 +2,7 @@
 
 #include "Project2.h"
 #include "Platform.h"
+#include "Folder.h"
 
 // rapidjson
 #include "rapidjson/document.h"
@@ -82,6 +83,11 @@ GMProject2::GMProject2(string ProjectPath)
 	}
 }
 
+string GMProject2::GetProjectRoot()
+{
+	return RMSPlatform::Dir(m_ProjectPath);
+}
+
 unsigned GMProject2::GetNumResources()
 {
 	return m_ResourcesTopLevel.size();
@@ -125,7 +131,25 @@ void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Ty
 
 	// Put a shared_ptr to the resource into the m_Resources list.
 	shared_ptr<GMResource> NewResource;
-	NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+
+	switch (Type)
+	{
+	case Object:
+		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		break;
+	case Room:
+		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		break;
+	case Sprite:
+		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		break;
+	case TileSet:
+		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		break;
+	case Folder:
+		NewResource = std::make_shared<GMFolder>(this, Key, RelativePath);
+		break;
+	}
 
 	m_Resources.push_back(NewResource);
 }

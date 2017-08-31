@@ -64,12 +64,6 @@ void GMObject::Init()
 					Doc["spriteId"].GetString()
 				)
 			); // For certain reasons, this won't fail much - and even if it does it's not an issue.
-
-			// TEMP
-			if (m_Sprite)
-			{
-				SetName(GetName() + " #" + m_Sprite->GetName());
-			}
 		}
 		catch (std::exception &e)
 		{

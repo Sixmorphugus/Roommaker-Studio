@@ -1,3 +1,5 @@
+// Copyright Chris Sixsmith 2017. All Rights Reserved.
+
 #include "SFMLCanvas.h"
 
 #undef Status
@@ -11,6 +13,7 @@
 BEGIN_EVENT_TABLE(rmsSFMLCanvas, wxControl)
 EVT_IDLE(rmsSFMLCanvas::OnIdle)
 EVT_ERASE_BACKGROUND(rmsSFMLCanvas::OnEraseBackground)
+EVT_UPDATE_UI(wxID_ANY, rmsSFMLCanvas::OnUpdateUi)
 END_EVENT_TABLE()
 
 rmsSFMLCanvas::rmsSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Position, const wxSize& Size, long Style) :
@@ -36,24 +39,25 @@ rmsSFMLCanvas::rmsSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Pos
 #endif
 
 	m_DrawLock = nullptr;
-
-	Bind(wxEVT_PAINT, &rmsSFMLCanvas::OnPaint, this);
-}
-
-void rmsSFMLCanvas::OnPaint(wxPaintEvent& event)
-{
-	SetDrawMode(true);
-
-	clear(sf::Color::Black);
-	display();
-
-	SetDrawMode(false);
 }
 
 void rmsSFMLCanvas::OnIdle(wxIdleEvent&)
 {
 	// Send a paint message when the control is idle, to ensure maximum framerate
 	Refresh();
+}
+
+void rmsSFMLCanvas::OnUpdateUi(wxUpdateUIEvent& event)
+{
+	// Because of how SFML handles default views, we'll need to make our own for the window element to work properly.
+	sf::View ourView = getDefaultView();
+
+	ourView.setSize(GetSize().GetX(), GetSize().GetY());
+	ourView.setCenter(GetSize().GetX() / 2, GetSize().GetY() / 2);
+
+	setView(ourView);
+
+	setSize(sf::Vector2u(GetSize().GetX(), GetSize().GetY()));
 }
 
 void rmsSFMLCanvas::SetDrawMode(bool onOrOff)
@@ -66,3 +70,4 @@ void rmsSFMLCanvas::SetDrawMode(bool onOrOff)
 		m_DrawLock = nullptr;
 	}
 }
+

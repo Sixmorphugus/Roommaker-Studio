@@ -13,4 +13,7 @@ private:
 	void OnAbout(wxCommandEvent& event);
 
 	void OnLoadGMS2Project(wxCommandEvent& event);
+	void OnSaveProject(wxCommandEvent& event);
+	void OnDropProject(wxCommandEvent& event);
+	void OnGithub(wxCommandEvent& event);
 };

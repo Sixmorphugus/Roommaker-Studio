@@ -19,8 +19,11 @@ bool RMSEditor::OnInit()
 	RMSPlatform::Log("RoomMaker Studio r" + to_string(RMS_BUILD));
 	RMSPlatform::Log("");
 
-	Frame = new RMSEditorFrame();
-	Frame->Show(true);
+	m_Frame = new RMSEditorFrame();
+	m_Frame->Show(true);
+
+	m_Project2 = NULL;
+	m_ProjectDirty = false;
 
 	return true;
 }
@@ -34,22 +37,35 @@ int RMSEditor::OnExit()
 	return 0;
 }
 
-void RMSEditor::LoadGMProject(std::string ProjectPath)
+void RMSEditor::LoadGMS2Project(std::string ProjectPath)
 {
-	wxProgressDialog* dialog = new wxProgressDialog(wxT("Just a moment..."), wxT("Parsing..."), 100, Frame, wxPD_AUTO_HIDE | wxPD_APP_MODAL);
+	wxProgressDialog* dialog = new wxProgressDialog(wxT("Just a moment..."), wxT("Parsing..."), 100, m_Frame, wxPD_AUTO_HIDE | wxPD_APP_MODAL);
 
-	Project2 = new GMProject2(ProjectPath, dialog);
+	m_Project2 = new GMProject2(ProjectPath, dialog);
 
 	delete dialog;
 
-	if (!Project2->IsValid())
+	if (!m_Project2->IsValid())
 	{
 		wxMessageBox("Failed to load project: " + ProjectPath,
 			"Project load failed", wxOK | wxICON_ERROR);
 
 		RMS_LogWarn("Failed to load project.");
-		delete Project2;
+		delete m_Project2;
 	}
+
+	m_ProjectDirty = false;
+}
+
+void RMSEditor::DropProject()
+{
+	delete m_Project2;
+	m_ProjectDirty = false;
+}
+
+void RMSEditor::SaveProject()
+{
+	m_ProjectDirty = false;
 }
 
 wxIMPLEMENT_APP_CONSOLE(RMSEditor);

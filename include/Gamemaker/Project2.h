@@ -7,6 +7,8 @@
 
 #include <memory>
 
+class wxProgressDialog;
+
 /*
  Roommaker Studio GMS2 project mirroring
  */
@@ -24,7 +26,7 @@ private:
 	void LoadResource(std::string Key, std::string RelativePath, GMResourceType Type);
 
 public:
-	GMProject2(std::string ProjectPath);
+	GMProject2(std::string ProjectPath, wxProgressDialog* ProgDlg = NULL);
 
 	std::string GetProjectPath() { return m_ProjectPath; }
 	std::string GetProjectRoot();
@@ -37,5 +39,5 @@ public:
 	virtual GMResource* GetResource(unsigned i);
 	// End
 
-	friend class GMFolder; // For book-keeping reasons, folder can access the private resource list.
+	friend class GMResourceContainer; // For book-keeping reasons, GMResourceContainer can access the private resource list.
 };

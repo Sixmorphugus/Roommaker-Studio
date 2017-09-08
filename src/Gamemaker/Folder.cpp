@@ -8,7 +8,7 @@
 using namespace std;
 
 GMFolder::GMFolder(GMProject2* Project, string Key, string DataPath)
-	: GMResource(Project, Key, DataPath)
+	: GMResource(Project, Key, DataPath), GMResourceContainer(Project)
 {
 	m_DefaultFolder = false;
 
@@ -91,12 +91,14 @@ void GMFolder::Init()
 				// Find this child in the central resource list.
 				for (auto& Child : Doc["children"].GetArray())
 				{
-					for (auto& Resource : GetProject()->m_Resources)
+					for (unsigned i = 0; i < GetNumAllResources(); i++)
 					{
+						auto Resource = GetAllResource(i);
+
 						if (Resource->GetKey() == Child.GetString() && Resource->GetParent() != this)
 						{
-							Parent(Resource.get());
-							m_Resources.push_back(Resource.get());
+							Parent(Resource);
+							m_Resources.push_back(Resource);
 						}
 					}
 				}
@@ -111,4 +113,12 @@ void GMFolder::Init()
 	{
 		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
 	}
+}
+
+GMResource* GMFolder::GetResource(unsigned i)
+{
+	if (i >= GetNumResources())
+		return NULL;
+
+	return m_Resources[i];
 }

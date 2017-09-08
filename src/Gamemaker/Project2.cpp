@@ -9,9 +9,13 @@
 // rapidjson
 #include "rapidjson/document.h"
 
+// wx
+#include <wx/progdlg.h>
+
 using namespace std;
 
-GMProject2::GMProject2(string ProjectPath)
+GMProject2::GMProject2(string ProjectPath, wxProgressDialog* ProgDlg)
+	: GMResourceContainer(this)
 {
 	m_ProjectPath = ProjectPath;
 	m_Valid = false;
@@ -36,9 +40,15 @@ GMProject2::GMProject2(string ProjectPath)
 
 			auto ResourceList = Doc["resources"].GetArray();
 
+			if(ProgDlg) ProgDlg->SetRange(ResourceList.Size() * 2 + 1);
+
 			// Load individual resources.
-			for (auto& Resource : ResourceList)
+			for (unsigned i = 0; i < ResourceList.Size(); i++)
 			{
+				if (ProgDlg) ProgDlg->Update(i, "Loading Resources...");
+
+				auto& Resource = ResourceList[i];
+
 				assert(Resource.IsObject());
 				assert(Resource["Key"].IsString());
 
@@ -74,13 +84,17 @@ GMProject2::GMProject2(string ProjectPath)
 				LoadResource(Key, Path, Type);
 			}
 
-			// Parent things properly
-			for (auto& Resource : m_Resources)
+			for (unsigned i = 0; i < m_Resources.size(); i++)
 			{
+				if (ProgDlg) ProgDlg->Update(ResourceList.Size() + i, "Initializing Resources...");
+
+				auto& Resource = m_Resources[i];
 				Resource->Init();
 			}
 
 			// Find the group "Default". That's the one that contains all the main filters.
+			if (ProgDlg) ProgDlg->Update(ResourceList.Size() * 2 + 1, "Building Asset Tree...");
+
 			for (auto& Resource : m_Resources)
 			{
 				GMFolder* Folder = dynamic_cast<GMFolder*>(Resource.get());
@@ -112,7 +126,10 @@ GMProject2::GMProject2(string ProjectPath)
 				}
 			}
 
+			if (ProgDlg) ProgDlg->Update(ResourceList.Size() * 2 + 1, "Done");
+
 			RMSPlatform::Log("\tBuilt resource tree.");
+			m_Valid = true;
 		}
 		catch (exception &e)
 		{
@@ -148,6 +165,9 @@ unsigned GMProject2::GetNumResources()
 
 GMResource* GMProject2::GetResource(unsigned i)
 {
+	if (i >= GetNumResources())
+		return NULL;
+	
 	return m_ResourcesTopLevel[i];
 }
 

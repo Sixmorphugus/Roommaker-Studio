@@ -29,6 +29,12 @@ std::string GMResource::GetRealPath()
 	return m_Project->GetProjectRoot() + "/" + m_DataPath;
 }
 
+
+GMResourceContainer::GMResourceContainer(GMProject2* Project)
+{
+	m_Project = Project;
+}
+
 bool GMResourceContainer::HasChild(string Key)
 {
 	for (unsigned i = 0; i < GetNumResources(); i++)
@@ -54,4 +60,17 @@ bool GMResourceContainer::HasChild(GMResource* Memory)
 void GMResourceContainer::Parent(GMResource* Memory)
 {
 	Memory->m_Parent = this;
+}
+
+unsigned GMResourceContainer::GetNumAllResources()
+{
+	return m_Project->m_Resources.size();
+}
+
+GMResource* GMResourceContainer::GetAllResource(unsigned i)
+{
+	if (i >= GetNumAllResources())
+		return NULL;
+
+	return m_Project->m_Resources[i].get();
 }

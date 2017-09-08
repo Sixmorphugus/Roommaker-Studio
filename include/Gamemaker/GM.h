@@ -62,8 +62,11 @@ public:
  */
 class RMSDLL GMResourceContainer
 {
+private:
+	GMProject2* m_Project;
+
 public:
-	GMResourceContainer() {}
+	GMResourceContainer(GMProject2* Project);
 
 	virtual unsigned GetNumResources() = 0;
 	virtual GMResource* GetResource(unsigned i) = 0;
@@ -74,4 +77,7 @@ public:
 
 protected:
 	virtual void Parent(GMResource* Memory);
+
+	virtual unsigned GetNumAllResources();
+	virtual GMResource* GetAllResource(unsigned i);
 };

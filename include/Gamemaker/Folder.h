@@ -19,7 +19,7 @@ public:
 	virtual void Init();
 
 	unsigned GetNumResources() { return m_Resources.size(); }
-	GMResource* GetResource(unsigned i) { return m_Resources[i]; }
+	GMResource* GetResource(unsigned i);
 	virtual GMResourceType GetType() { return Folder; }
 	virtual GMResourceType GetFilterType() { return m_FilterType; }
 	bool IsDefaultFolder() { return m_DefaultFolder; }

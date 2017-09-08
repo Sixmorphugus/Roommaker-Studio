@@ -2,17 +2,27 @@
 
 #pragma once
 
-// For compilers that support precompilation, includes "wx/wx.h".
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#endif
-
 #include "Platform.h"
+
+class GMProject2;
 
 class RMSDLL RMSEditor : public wxApp
 {
-public:
+private:
+	GMProject2* Project2;
+	class RMSEditorFrame* Frame;
+
+private:
 	virtual bool OnInit();
 	virtual int OnExit();
+
+public:
+	void LoadGMProject(std::string ProjectPath);
+
+	GMProject2* GetGMProject() { return Project2; }
+	bool IsGMProjectLoaded() { return Project2 != NULL; }
+
+	RMSEditorFrame* GetFrame() { return Frame; }
 };
+
+wxDECLARE_APP(RMSEditor);

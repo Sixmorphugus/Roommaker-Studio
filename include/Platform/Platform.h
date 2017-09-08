@@ -5,7 +5,14 @@
 #include <string>
 #include <vector>
 #include <fstream>
+
 #include "PlatformDeduction.h"
+
+// For compilers that support precompilation, includes "wx/wx.h".
+#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif
 
 namespace RMSPlatform {
 	enum LOGTYPE { INF = 0, WARNING = 1, FATAL = 2, CHAISCRIPT = 3 };

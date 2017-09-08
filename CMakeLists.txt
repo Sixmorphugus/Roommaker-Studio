@@ -27,18 +27,22 @@ foreach(source IN LISTS Roommaker_Studio_FILES)
     source_group("${source_path}" FILES "${source}")
 endforeach()
 
+######################
+# COMPILE DEPENDENCIES
+
 # make everything output to the same place (we do not have to copy sfml's libs to where Roommaker_Studio is if Roommaker_Studio already outputs next to them)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
-######################
-# COMPILE DEPENDENCIES
 
 add_subdirectory(extlibs) # find all externals
 
 # options for externals - use all sfml libs but network+audio
 set(Roommaker_Studio_SFML_LIB sfml-main sfml-system sfml-window sfml-graphics)
 set(Roommaker_Studio_SFML_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/SFML/include)
+
+set(Roommaker_Studio_WX_LIB core base adv propgrid)
+set(Roommaker_Studio_WX_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/wxWidgets/include)
+
 set(Roommaker_Studio_RAPIDJSON_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/rapidjson)
 
 ######################
@@ -59,12 +63,20 @@ endif()
 
 # Link libraries - include required files
 target_link_libraries(Roommaker_Studio ${Roommaker_Studio_SFML_LIB})
+target_link_libraries(Roommaker_Studio ${Roommaker_Studio_WX_LIB})
+
 include_directories(${Roommaker_Studio_SFML_INCLUDE})
+include_directories(${Roommaker_Studio_WX_INCLUDE})
 include_directories(${Roommaker_Studio_RAPIDJSON_INCLUDE})
 
-# On any UNIX os, Roommaker_Studio needs libdl
+# On any UNIX os, Roommaker_Studio needs libdl, X11 and GTK2
 if(UNIX)
 	target_link_libraries(Roommaker_Studio dl)
+	
+	target_link_libraries(Roommaker_Studio X11)
+
+	include_directories(${GTK2_INCLUDE_DIRS})
+	target_link_libraries(Roommaker_Studio ${GTK2_LIBRARIES})
 endif()
 
 ######################
@@ -81,8 +93,9 @@ add_custom_command(
 add_custom_command(TARGET Roommaker_Studio POST_BUILD
 	COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/base $<TARGET_FILE_DIR:Roommaker_Studio>/base
 )
-	
-# copy OpenAL32.dll to the base dir
+
+# cmake is so janky what the fuck
+add_definitions(-DWXUSINGDLL)
 
 ######################
 # PRE-COMPILE

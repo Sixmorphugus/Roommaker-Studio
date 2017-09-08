@@ -40,7 +40,7 @@ add_subdirectory(extlibs) # find all externals
 set(Roommaker_Studio_SFML_LIB sfml-main sfml-system sfml-window sfml-graphics)
 set(Roommaker_Studio_SFML_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/SFML/include)
 
-set(Roommaker_Studio_WX_LIB core base adv propgrid)
+set(Roommaker_Studio_WX_LIB core base adv propgrid aui)
 set(Roommaker_Studio_WX_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/wxWidgets/include)
 
 set(Roommaker_Studio_RAPIDJSON_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/rapidjson)

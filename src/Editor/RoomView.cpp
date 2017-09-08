@@ -1,14 +1,14 @@
 // Copyright Chris Sixsmith 2017. All Rights Reserved.
 
-#include "RoomViewer.h"
+#include "RoomView.h"
 
 using namespace std;
 
-BEGIN_EVENT_TABLE(rmsRoomViewer, rmsSFMLCanvas)
-EVT_PAINT(rmsRoomViewer::OnPaint)
+BEGIN_EVENT_TABLE(rmsRoomView, rmsSFMLCanvas)
+EVT_PAINT(rmsRoomView::OnPaint)
 END_EVENT_TABLE()
 
-rmsRoomViewer::rmsRoomViewer(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, const wxPoint& Position /*= wxDefaultPosition*/, const wxSize& Size /*= wxDefaultSize*/, long Style /*= 0*/)
+rmsRoomView::rmsRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, const wxPoint& Position /*= wxDefaultPosition*/, const wxSize& Size /*= wxDefaultSize*/, long Style /*= 0*/)
 	: rmsSFMLCanvas(Parent, Id, Position, Size, Style)
 {
 	m_RmsLogoTexture.loadFromFile("base/GMS2.png");
@@ -17,7 +17,7 @@ rmsRoomViewer::rmsRoomViewer(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/
 	m_RmsGradientTexture.setRepeated(true);
 }
 
-void rmsRoomViewer::OnPaint(wxPaintEvent& event)
+void rmsRoomView::OnPaint(wxPaintEvent& event)
 {
 	SetDrawMode(true);
 

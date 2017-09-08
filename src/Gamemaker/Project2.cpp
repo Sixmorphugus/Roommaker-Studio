@@ -108,6 +108,7 @@ GMProject2::GMProject2(string ProjectPath, wxProgressDialog* ProgDlg)
 							GMResource* ResourceResource = Folder->GetResource(i);
 
 							// sorry about this
+							/*
 							if (   ResourceResource->GetName() != "scripts"
 								&& ResourceResource->GetName() != "sounds"
 								&& ResourceResource->GetName() != "paths"
@@ -120,6 +121,7 @@ GMProject2::GMProject2(string ProjectPath, wxProgressDialog* ProgDlg)
 								&& ResourceResource->GetName() != "options"
 								&& ResourceResource->GetName() != "configs"
 							)
+							*/
 								m_ResourcesTopLevel.push_back(ResourceResource);
 						}
 					}

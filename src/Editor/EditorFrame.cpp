@@ -3,7 +3,8 @@
 #include "EditorFrame.h"
 #include "Editor.h"
 #include "build.h"
-#include "RoomViewer.h"
+#include "RoomView.h"
+#include "RoomTree.h"
 
 #include <wx/filedlg.h>
 
@@ -14,12 +15,16 @@ enum
 	rmsID_LoadGMS2Project,
 	rmsID_SaveProject,
 	rmsID_DropProject,
-	rmsID_Github
+	rmsID_Github,
+
+	rmsID_ViewRoomTree
 };
 
 RMSEditorFrame::RMSEditorFrame()
 	: wxFrame(NULL, wxID_ANY, "Roommaker Studio r" + to_string(RMS_BUILD), wxDefaultPosition, wxSize(1200, 720))
 {
+	m_AuiManager.SetManagedWindow(this);
+
 	// Init window
 	Maximize(true);
 
@@ -37,8 +42,12 @@ RMSEditorFrame::RMSEditorFrame()
 	menuHelp->Append(wxID_ABOUT);
 	menuHelp->Append(rmsID_Github, "Github Page", "View the Roommaker Studio Github page.");
 
+	wxMenu *menuView = new wxMenu;
+	menuView->Append(rmsID_ViewRoomTree, "Room Tree", "Show The Room Tree.");
+
 	wxMenuBar *menuBar = new wxMenuBar;
 	menuBar->Append(menuFile, "&Project");
+	menuBar->Append(menuView, "&View");
 	menuBar->Append(menuHelp, "&Help");
 
 	SetMenuBar(menuBar);
@@ -48,15 +57,14 @@ RMSEditorFrame::RMSEditorFrame()
 	SetStatusText("Welcome to RMS!");
 
 	// Add the Room View
-	wxBoxSizer* BS = new wxBoxSizer(wxHORIZONTAL);
+	rmsRoomView* Canvas = new rmsRoomView(this, wxID_ANY);
+	m_AuiManager.AddPane(Canvas, wxCENTER, "Room View");
 
-	rmsSFMLCanvas* Canvas = new rmsRoomViewer(this, wxID_ANY);
-	BS->Add(Canvas, wxALL|wxEXPAND);
+	// Add the room tree
+	m_RoomTree = new rmsRoomTree(this, wxID_ANY, wxDefaultPosition, wxSize(400, 800));
+	m_AuiManager.AddPane(m_RoomTree, wxRIGHT, "Room Tree");
 
-	BS->Layout();
-
-	// Add the object tree
-
+	m_AuiManager.Update();
 
 	// Bind events
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnAbout, this, wxID_ABOUT);
@@ -65,6 +73,13 @@ RMSEditorFrame::RMSEditorFrame()
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnSaveProject, this, rmsID_SaveProject);
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnDropProject, this, rmsID_DropProject);
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnGithub, this, rmsID_Github);
+
+	Bind(wxEVT_MENU, &RMSEditorFrame::OnViewRoomTree, this, rmsID_ViewRoomTree);
+}
+
+RMSEditorFrame::~RMSEditorFrame()
+{
+	m_AuiManager.UnInit();
 }
 
 void RMSEditorFrame::OnExit(wxCommandEvent& event)
@@ -134,4 +149,10 @@ void RMSEditorFrame::OnDropProject(wxCommandEvent& event)
 void RMSEditorFrame::OnGithub(wxCommandEvent& event)
 {
 	wxLaunchDefaultBrowser("https://github.com/Sixmorphugus/Roommaker-Studio");
+}
+
+void RMSEditorFrame::OnViewRoomTree(wxCommandEvent& event)
+{
+	m_AuiManager.GetPane(m_RoomTree).Show();
+	m_AuiManager.Update();
 }

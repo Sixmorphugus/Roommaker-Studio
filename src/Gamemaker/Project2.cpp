@@ -174,6 +174,11 @@ GMResource* GMProject2::GetResource(unsigned i)
 	return m_ResourcesTopLevel[i];
 }
 
+void GMProject2::Save()
+{
+	// Does nothing YET
+}
+
 void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Type)
 {
 	// Debug message
@@ -223,6 +228,8 @@ void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Ty
 		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
 		break;
 	}
+
+	NewResource->SetSaveType(Type);
 
 	m_Resources.push_back(NewResource);
 }

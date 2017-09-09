@@ -17,6 +17,8 @@ enum
 	rmsID_DropProject,
 	rmsID_Github,
 
+	rmsID_RoomExport,
+
 	rmsID_ViewRoomTree
 };
 
@@ -30,7 +32,6 @@ RMSEditorFrame::RMSEditorFrame()
 
 	// Add the Menu Bar
 	wxMenu *menuFile = new wxMenu;
-	
 	menuFile->Append(rmsID_LoadGMS2Project, "Load GMS2 Project File...", "Load the GMS2 project file you're going to be working with.");
 	menuFile->Append(rmsID_SaveProject, "Save Project File", "Save the project where you loaded it from.");
 	menuFile->AppendSeparator();
@@ -38,15 +39,19 @@ RMSEditorFrame::RMSEditorFrame()
 	menuFile->AppendSeparator();
 	menuFile->Append(wxID_EXIT);
 
-	wxMenu *menuHelp = new wxMenu;
-	menuHelp->Append(wxID_ABOUT);
-	menuHelp->Append(rmsID_Github, "Github Page", "View the Roommaker Studio Github page.");
+	wxMenu *menuRoom = new wxMenu;
+	menuRoom->Append(rmsID_RoomExport, "Export Room as .yy...", "Save the room as a .yy file.");
 
 	wxMenu *menuView = new wxMenu;
 	menuView->Append(rmsID_ViewRoomTree, "Room Tree", "Show The Room Tree.");
 
+	wxMenu *menuHelp = new wxMenu;
+	menuHelp->Append(wxID_ABOUT);
+	menuHelp->Append(rmsID_Github, "Github Page", "View the Roommaker Studio Github page.");
+
 	wxMenuBar *menuBar = new wxMenuBar;
 	menuBar->Append(menuFile, "&Project");
+	menuBar->Append(menuRoom, "&Room");
 	menuBar->Append(menuView, "&View");
 	menuBar->Append(menuHelp, "&Help");
 
@@ -73,6 +78,8 @@ RMSEditorFrame::RMSEditorFrame()
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnSaveProject, this, rmsID_SaveProject);
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnDropProject, this, rmsID_DropProject);
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnGithub, this, rmsID_Github);
+
+	Bind(wxEVT_MENU, &RMSEditorFrame::OnRoomExport, this, rmsID_RoomExport);
 
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnViewRoomTree, this, rmsID_ViewRoomTree);
 }
@@ -123,7 +130,7 @@ void RMSEditorFrame::OnSaveProject(wxCommandEvent& event)
 {
 	if (!wxGetApp().IsProjectLoaded())
 	{
-		wxMessageBox("No project is loaded!", "Oops!", wxOK);
+		wxMessageBox("No project is loaded!", "Oops!", wxOK | wxICON_EXCLAMATION);
 		return;
 	}
 
@@ -134,7 +141,7 @@ void RMSEditorFrame::OnDropProject(wxCommandEvent& event)
 {
 	if (!wxGetApp().IsProjectLoaded())
 	{
-		wxMessageBox("No project is loaded!", "Oops!", wxOK);
+		wxMessageBox("No project is loaded!", "Oops!", wxOK | wxICON_EXCLAMATION);
 		return;
 	}
 
@@ -155,6 +162,14 @@ void RMSEditorFrame::OnDropProject(wxCommandEvent& event)
 void RMSEditorFrame::OnGithub(wxCommandEvent& event)
 {
 	wxLaunchDefaultBrowser("https://github.com/Sixmorphugus/Roommaker-Studio");
+}
+
+void RMSEditorFrame::OnRoomExport(wxCommandEvent& event)
+{
+	if (!wxGetApp().IsProjectLoaded())
+	{
+		wxMessageBox("This doesn't work yet. Apologies.", "Error", wxOK | wxICON_EXCLAMATION);
+	}
 }
 
 void RMSEditorFrame::OnViewRoomTree(wxCommandEvent& event)

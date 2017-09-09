@@ -23,5 +23,7 @@ private:
 	void OnDropProject(wxCommandEvent& event);
 	void OnGithub(wxCommandEvent& event);
 
+	void OnRoomExport(wxCommandEvent& event);
+
 	void OnViewRoomTree(wxCommandEvent& event);
 };

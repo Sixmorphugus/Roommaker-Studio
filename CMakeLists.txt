@@ -11,11 +11,7 @@ file(GLOB Roommaker_Studio_INCLUDE_FOLDERS
 	"${CMAKE_CURRENT_SOURCE_DIR}/include/*"
 )
 
-file(GLOB Roommaker_Studio_SRC_FOLDERS
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*"
-)
-
-file(GLOB Roommaker_Studio_FILES
+file(GLOB_RECURSE Roommaker_Studio_FILES
 	"${CMAKE_CURRENT_SOURCE_DIR}/include/*/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*/*.cpp"
 )

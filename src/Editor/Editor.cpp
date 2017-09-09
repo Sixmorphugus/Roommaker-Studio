@@ -68,6 +68,9 @@ void RMSEditor::DropProject()
 void RMSEditor::SaveProject()
 {
 	m_ProjectDirty = false;
+
+	if(m_Project2)
+		m_Project2->Save();
 }
 
 wxIMPLEMENT_APP_CONSOLE(RMSEditor);

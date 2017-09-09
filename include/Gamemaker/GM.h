@@ -35,6 +35,8 @@ private:
 
 	class GMResourceContainer* m_Parent;
 
+	GMResourceType m_SaveType;
+
 public:
 	GMResource(GMProject2* Project, std::string Key, std::string DataPath);
 
@@ -50,6 +52,9 @@ public:
 	std::string GetRealPath();
 
 	void SetName(std::string Name) { m_Name = Name; }
+
+	GMResourceType GetSaveType() { return m_SaveType; }
+	void SetSaveType(GMResourceType SaveType) { m_SaveType = SaveType; }
 
 	friend GMResourceContainer;
 };

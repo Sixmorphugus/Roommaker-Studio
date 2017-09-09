@@ -26,6 +26,12 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 
 			assert(Doc["name"].IsString());
 			SetName(Doc["name"].GetString());
+
+			// Read physics world settings
+			assert(Doc["physicsSettings"].IsObject());
+			auto physSettings = Doc["physicsSettings"].GetObject();
+
+			
 		}
 		catch (std::exception &e)
 		{

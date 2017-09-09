@@ -39,5 +39,7 @@ public:
 	virtual GMResource* GetResource(unsigned i);
 	// End
 
+	void Save();
+
 	friend class GMResourceContainer; // For book-keeping reasons, GMResourceContainer can access the private resource list.
 };

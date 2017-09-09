@@ -114,6 +114,9 @@ void RMSEditorFrame::OnLoadGMS2Project(wxCommandEvent& event)
 
 	// proceed loading the file chosen by the user
 	wxGetApp().LoadGMS2Project(openFileDialog.GetPath().ToStdString());
+
+	// Refresh trees
+	m_RoomTree->Repopulate();
 }
 
 void RMSEditorFrame::OnSaveProject(wxCommandEvent& event)
@@ -144,6 +147,9 @@ void RMSEditorFrame::OnDropProject(wxCommandEvent& event)
 	}
 
 	wxGetApp().DropProject();
+
+	// Refresh trees
+	m_RoomTree->Repopulate();
 }
 
 void RMSEditorFrame::OnGithub(wxCommandEvent& event)

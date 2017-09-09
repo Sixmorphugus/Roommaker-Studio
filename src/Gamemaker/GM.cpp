@@ -35,6 +35,19 @@ GMResourceContainer::GMResourceContainer(GMProject2* Project)
 	m_Project = Project;
 }
 
+GMResource* GMResourceContainer::GetResourceByName(std::string Name)
+{
+	for (unsigned i = 0; i < GetNumResources(); i++)
+	{
+		if (GetResource(i)->GetName() == Name)
+			return GetResource(i);
+	}
+
+	RMS_LogWarn("Resource not found: " + Name);
+
+	return NULL;
+}
+
 bool GMResourceContainer::HasChild(string Key)
 {
 	for (unsigned i = 0; i < GetNumResources(); i++)

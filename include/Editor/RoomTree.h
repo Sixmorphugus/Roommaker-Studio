@@ -7,9 +7,15 @@
 
 class rmsRoomTree : public wxTreeCtrl
 {
+private:
+	wxTreeItemId m_TreeRoot;
+
 public:
 	rmsRoomTree(wxWindow *parent, wxWindowID id = wxID_ANY, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator &validator = wxDefaultValidator, const wxString &name = wxTreeCtrlNameStr);
 
-private:
+	void Repopulate();
+	void AddResource(wxTreeItemId parent, class GMResource* Resource);
 
+private:
+	
 };

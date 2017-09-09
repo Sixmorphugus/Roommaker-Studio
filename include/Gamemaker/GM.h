@@ -70,6 +70,7 @@ public:
 
 	virtual unsigned GetNumResources() = 0;
 	virtual GMResource* GetResource(unsigned i) = 0;
+	virtual GMResource* GetResourceByName(std::string Name);
 
 	// Helper for finding if a folder contains something.
 	bool HasChild(GMResource* Memory);

@@ -60,6 +60,8 @@ void RMSEditor::LoadGMS2Project(std::string ProjectPath)
 void RMSEditor::DropProject()
 {
 	delete m_Project2;
+	m_Project2 = NULL;
+
 	m_ProjectDirty = false;
 }
 

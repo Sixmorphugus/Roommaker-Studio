@@ -5,16 +5,18 @@
 #include "Platform.h"
 #include "wx/treectrl.h"
 
-class rmsRoomTree : public wxTreeCtrl
+class RMSRoomTree : public wxTreeCtrl
 {
 private:
 	wxTreeItemId m_TreeRoot;
 
 public:
-	rmsRoomTree(wxWindow *parent, wxWindowID id = wxID_ANY, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator &validator = wxDefaultValidator, const wxString &name = wxTreeCtrlNameStr);
+	RMSRoomTree(wxWindow *parent, wxWindowID id = wxID_ANY, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator &validator = wxDefaultValidator, const wxString &name = "Rooms");
 
 	void Repopulate();
 	void AddResource(wxTreeItemId parent, class GMResource* Resource);
+
+	void OnTreeItemActivated(wxTreeEvent& evt);
 
 private:
 	

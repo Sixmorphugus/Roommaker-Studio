@@ -5,6 +5,7 @@
 #include "EditorFrame.h"
 #include "build.h"
 #include "Project2.h"
+#include "Room.h"
 
 // wx
 #include <wx/progdlg.h>
@@ -19,11 +20,13 @@ bool RMSEditor::OnInit()
 	RMSPlatform::Log("RoomMaker Studio r" + to_string(RMS_BUILD));
 	RMSPlatform::Log("");
 
-	m_Frame = new RMSEditorFrame();
-	m_Frame->Show(true);
-
 	m_Project2 = NULL;
 	m_ProjectDirty = false;
+
+	m_OpenRoom = NULL;
+
+	m_Frame = new RMSEditorFrame();
+	m_Frame->Show(true);
 
 	return true;
 }
@@ -55,12 +58,14 @@ void RMSEditor::LoadGMS2Project(std::string ProjectPath)
 	}
 
 	m_ProjectDirty = false;
+	m_OpenRoom = NULL;
 }
 
 void RMSEditor::DropProject()
 {
 	delete m_Project2;
 	m_Project2 = NULL;
+	m_OpenRoom = NULL;
 
 	m_ProjectDirty = false;
 }
@@ -71,6 +76,14 @@ void RMSEditor::SaveProject()
 
 	if(m_Project2)
 		m_Project2->Save();
+}
+
+void RMSEditor::SetOpenRoom(GMRoom* OpenRoom)
+{
+	m_OpenRoom = OpenRoom;
+	RMS_LogInfo("Opening Room: \"" + OpenRoom->GetName() + "\"");
+
+	m_Frame->Update();
 }
 
 wxIMPLEMENT_APP_CONSOLE(RMSEditor);

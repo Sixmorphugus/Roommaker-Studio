@@ -9,11 +9,14 @@ class RMSEditorFrame : public wxFrame
 {
 public:
 	wxAuiManager m_AuiManager;
-	class rmsRoomTree* m_RoomTree;
+	class RMSRoomTree* m_RoomTree;
+	class RMSRoomProperties* m_RoomProperties;
 
 public:
 	RMSEditorFrame();
 	~RMSEditorFrame();
+
+	void Update();
 private:
 	void OnExit(wxCommandEvent& event);
 	void OnAbout(wxCommandEvent& event);
@@ -26,4 +29,5 @@ private:
 	void OnRoomExport(wxCommandEvent& event);
 
 	void OnViewRoomTree(wxCommandEvent& event);
+	void OnViewRoomProperties(wxCommandEvent& event);
 };

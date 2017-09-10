@@ -4,14 +4,14 @@
 
 #include "SFMLCanvas.h"
 
-class rmsRoomView : public rmsSFMLCanvas
+class RMSRoomView : public RMSSFMLCanvas
 {
 private:
 	sf::Texture m_RmsLogoTexture;
 	sf::Texture m_RmsGradientTexture;
 
 public:
-	rmsRoomView(wxWindow* Parent = NULL, wxWindowID Id = -1, const wxPoint& Position = wxDefaultPosition, const wxSize& Size = wxDefaultSize, long Style = 0);
+	RMSRoomView(wxWindow* Parent = NULL, wxWindowID Id = -1, const wxPoint& Position = wxDefaultPosition, const wxSize& Size = wxDefaultSize, long Style = 0);
 
 private:
 	DECLARE_EVENT_TABLE()

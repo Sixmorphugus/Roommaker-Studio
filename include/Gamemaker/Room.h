@@ -3,6 +3,7 @@
 #pragma once
 
 #include "GM.h"
+#include "Room/View.h"
 
 #include "SFML/Graphics.hpp"
 
@@ -14,7 +15,7 @@ private:
 	std::string m_CreationCode;
 	GMRoom* m_ParentRoom;
 	//std::vector<GMLayer> m_Layers;
-	//GMView m_Views[8];
+	GMView m_Views[8];
 
 	// Physics settings
 	bool m_isPhysicsWorld;
@@ -35,9 +36,15 @@ private:
 	bool m_ViewsClearBackground;
 	bool m_ViewsInheritSettings;
 
+private:
+	void SetDefaults();
+
 public:
 	//GMRoom(GMProject2* Project); // Create a new room
 	GMRoom(GMProject2* Project, std::string Key, std::string DataPath); // Load an existing room
+
+	// Useful operations
+	void WriteJson(std::string At);
 
 	// Room stuff
 	GMRoom* GetParentRoom() { return m_ParentRoom; }
@@ -45,6 +52,8 @@ public:
 
 	std::string GetCreationCode() { return m_CreationCode; }
 	void SetCreationCode(std::string CreationCode) { m_CreationCode = CreationCode; }
+
+	GMView* GetView(unsigned i);
 
 	// Manipulate physics settings
 	bool GetIsPhysicsWorld() { return m_isPhysicsWorld; }
@@ -66,6 +75,7 @@ public:
 	int GetHeight() { return m_Height; }
 	void SetWidth(int Width) { m_Width = Width; }
 	void SetHeight(int Height) { m_Height = Height; }
+	void SetSize(int Width, int Height) { SetWidth(Width); SetHeight(Height); }
 
 	bool GetIsPersistent() { return m_Persistent; }
 	void SetIsPersistent(bool Persistent) { m_Persistent = Persistent; }

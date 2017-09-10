@@ -35,6 +35,7 @@ namespace RMSPlatform {
 	RMSDLL std::vector<std::string> DirList(std::string path, bool includeExtra = false);
 	RMSDLL std::string RealPath(std::string path);
 	RMSDLL bool FileDelete(std::string in);
+	RMSDLL std::string FileName(std::string path);
 
 	RMSDLL bool SetWorkDir(std::string path);
 	RMSDLL void ResetWorkDir();

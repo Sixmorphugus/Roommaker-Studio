@@ -2,14 +2,17 @@
 
 #include "RoomView.h"
 
+#include "Editor.h"
+#include "Room.h"
+
 using namespace std;
 
-BEGIN_EVENT_TABLE(rmsRoomView, rmsSFMLCanvas)
-EVT_PAINT(rmsRoomView::OnPaint)
+BEGIN_EVENT_TABLE(RMSRoomView, RMSSFMLCanvas)
+EVT_PAINT(RMSRoomView::OnPaint)
 END_EVENT_TABLE()
 
-rmsRoomView::rmsRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, const wxPoint& Position /*= wxDefaultPosition*/, const wxSize& Size /*= wxDefaultSize*/, long Style /*= 0*/)
-	: rmsSFMLCanvas(Parent, Id, Position, Size, Style)
+RMSRoomView::RMSRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, const wxPoint& Position /*= wxDefaultPosition*/, const wxSize& Size /*= wxDefaultSize*/, long Style /*= 0*/)
+	: RMSSFMLCanvas(Parent, Id, Position, Size, Style)
 {
 	m_RmsLogoTexture.loadFromFile("base/GMS2.png");
 	m_RmsGradientTexture.loadFromFile("base/gradient.png");
@@ -17,27 +20,39 @@ rmsRoomView::rmsRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, co
 	m_RmsGradientTexture.setRepeated(true);
 }
 
-void rmsRoomView::OnPaint(wxPaintEvent& event)
+void RMSRoomView::OnPaint(wxPaintEvent& event)
 {
 	SetDrawMode(true);
 
-	// draw background white
-	clear(sf::Color(255, 255, 255));
+	GMRoom* OpenRoom = wxGetApp().GetOpenRoom();
+	
+	if (OpenRoom)
+	{
+		// draw background black
+		clear(sf::Color(0, 0, 0));
+	}
+	else
+	{
+		// No room is open.
 
-	// draw gradient
-	sf::Sprite GMS2Grad(m_RmsGradientTexture);
-	GMS2Grad.setPosition(0, getSize().y);
-	GMS2Grad.setOrigin(0, m_RmsGradientTexture.getSize().y);
-	GMS2Grad.setScale((float)getSize().x / (float)m_RmsGradientTexture.getSize().x, 1);
+		// draw background white
+		clear(sf::Color(255, 255, 255));
 
-	draw(GMS2Grad);
+		// draw gradient
+		sf::Sprite GMS2Grad(m_RmsGradientTexture);
+		GMS2Grad.setPosition(0, getSize().y);
+		GMS2Grad.setOrigin(0, m_RmsGradientTexture.getSize().y);
+		GMS2Grad.setScale((float)getSize().x / (float)m_RmsGradientTexture.getSize().x, 1);
 
-	// draw GMS2 logo
-	sf::Sprite GMS2Sprite(m_RmsLogoTexture);
-	GMS2Sprite.setPosition(getSize().x / 2U, getSize().y / 2U);
-	GMS2Sprite.setOrigin(m_RmsLogoTexture.getSize().x / 2U, m_RmsLogoTexture.getSize().y / 2U);
+		draw(GMS2Grad);
 
-	draw(GMS2Sprite);
+		// draw GMS2 logo
+		sf::Sprite GMS2Sprite(m_RmsLogoTexture);
+		GMS2Sprite.setPosition(getSize().x / 2U, getSize().y / 2U);
+		GMS2Sprite.setOrigin(m_RmsLogoTexture.getSize().x / 2U, m_RmsLogoTexture.getSize().y / 2U);
+
+		draw(GMS2Sprite);
+	}
 
 	display();
 	

@@ -10,13 +10,13 @@
 	#include <gdk/gdkx.h>
 #endif
 
-BEGIN_EVENT_TABLE(rmsSFMLCanvas, wxControl)
-EVT_IDLE(rmsSFMLCanvas::OnIdle)
-EVT_ERASE_BACKGROUND(rmsSFMLCanvas::OnEraseBackground)
-EVT_UPDATE_UI(wxID_ANY, rmsSFMLCanvas::OnUpdateUi)
+BEGIN_EVENT_TABLE(RMSSFMLCanvas, wxControl)
+EVT_IDLE(RMSSFMLCanvas::OnIdle)
+EVT_ERASE_BACKGROUND(RMSSFMLCanvas::OnEraseBackground)
+EVT_UPDATE_UI(wxID_ANY, RMSSFMLCanvas::OnUpdateUi)
 END_EVENT_TABLE()
 
-rmsSFMLCanvas::rmsSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Position, const wxSize& Size, long Style) :
+RMSSFMLCanvas::RMSSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Position, const wxSize& Size, long Style) :
 	wxControl(Parent, Id, Position, Size, Style)
 {
 	RMS_LogInfo("Initializing SFML Canvas...");
@@ -41,13 +41,13 @@ rmsSFMLCanvas::rmsSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Pos
 	m_DrawLock = nullptr;
 }
 
-void rmsSFMLCanvas::OnIdle(wxIdleEvent&)
+void RMSSFMLCanvas::OnIdle(wxIdleEvent&)
 {
 	// Send a paint message when the control is idle, to ensure maximum framerate
 	Refresh();
 }
 
-void rmsSFMLCanvas::OnUpdateUi(wxUpdateUIEvent& event)
+void RMSSFMLCanvas::OnUpdateUi(wxUpdateUIEvent& event)
 {
 	// Because of how SFML handles default views, we'll need to make our own for the window element to work properly.
 	sf::View ourView = getDefaultView();
@@ -60,7 +60,7 @@ void rmsSFMLCanvas::OnUpdateUi(wxUpdateUIEvent& event)
 	setSize(sf::Vector2u(GetSize().GetX(), GetSize().GetY()));
 }
 
-void rmsSFMLCanvas::SetDrawMode(bool onOrOff)
+void RMSSFMLCanvas::SetDrawMode(bool onOrOff)
 {
 	if (onOrOff && !m_DrawLock) {
 		m_DrawLock = new wxPaintDC(this);

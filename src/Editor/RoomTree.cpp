@@ -4,14 +4,32 @@
 #include "Project2.h"
 #include "Editor.h"
 #include "Folder.h"
+#include "Room.h"
 
-rmsRoomTree::rmsRoomTree(wxWindow *parent, wxWindowID id /*= wxID_ANY*/, const wxPoint &pos /*= wxDefaultPosition*/, const wxSize &size /*= wxDefaultSize*/, long style /*= wxTR_DEFAULT_STYLE*/, const wxValidator &validator /*= wxDefaultValidator*/, const wxString &name /*= wxTreeCtrlNameStr*/)
-	: wxTreeCtrl(parent, id, pos, size, style, validator, "Rooms")
+class RMSRoomTreeItemData : public wxTreeItemData
+{
+private:
+	GMRoom* m_Room;
+
+public:
+	RMSRoomTreeItemData() {};
+	RMSRoomTreeItemData(GMRoom* Room) {
+		m_Room = Room;
+	};
+
+	GMRoom* GetRoom() { return m_Room; }
+	void SetRoom(GMRoom* Room) { m_Room = Room; }
+};
+
+RMSRoomTree::RMSRoomTree(wxWindow *parent, wxWindowID id /*= wxID_ANY*/, const wxPoint &pos /*= wxDefaultPosition*/, const wxSize &size /*= wxDefaultSize*/, long style /*= wxTR_DEFAULT_STYLE*/, const wxValidator &validator /*= wxDefaultValidator*/, const wxString &name /*= wxTreeCtrlNameStr*/)
+	: wxTreeCtrl(parent, id, pos, size, style, validator, name)
 {
 	m_TreeRoot = AddRoot("Rooms");
+
+	Bind(wxEVT_TREE_ITEM_ACTIVATED, &RMSRoomTree::OnTreeItemActivated, this);
 }
 
-void rmsRoomTree::Repopulate()
+void RMSRoomTree::Repopulate()
 {
 	RMS_LogInfo("Repopulating room tree...");
 
@@ -20,7 +38,7 @@ void rmsRoomTree::Repopulate()
 	m_TreeRoot = AddRoot("Rooms");
 
 	// Populate with rooms
-	GMProject2* Proj = wxGetApp().GetGMProject();
+	GMProject2* Proj = wxGetApp().GetProject();
 
 	if (Proj)
 	{
@@ -45,11 +63,18 @@ void rmsRoomTree::Repopulate()
 	{
 		RMS_LogInfo("No project present, nevermind...");
 	}
+
+	Expand(m_TreeRoot);
 }
 
-void rmsRoomTree::AddResource(wxTreeItemId parent, GMResource* Resource)
+void RMSRoomTree::AddResource(wxTreeItemId parent, GMResource* Resource)
 {
+	GMRoom* Room = dynamic_cast<GMRoom*>(Resource);
+
 	wxTreeItemId Id = AppendItem(m_TreeRoot, Resource->GetName());
+
+	if(Room)
+		SetItemData(Id, new RMSRoomTreeItemData(Room));
 
 	GMFolder* FolderResource = dynamic_cast<GMFolder*>(Resource);
 	if (FolderResource)
@@ -60,5 +85,16 @@ void rmsRoomTree::AddResource(wxTreeItemId parent, GMResource* Resource)
 
 			AddResource(Id, Resource);
 		}
+	}
+}
+
+void RMSRoomTree::OnTreeItemActivated(wxTreeEvent& evt)
+{
+	auto ItemData = GetItemData(evt.GetItem());
+	RMSRoomTreeItemData* RoomData = dynamic_cast<RMSRoomTreeItemData*>(ItemData);
+
+	if (RoomData)
+	{
+		wxGetApp().SetOpenRoom(RoomData->GetRoom());
 	}
 }

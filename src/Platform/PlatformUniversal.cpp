@@ -87,3 +87,9 @@ string RMSPlatform::Dir(string filePath)
 	size_t found = filePath.find_last_of("/\\");
 	return (filePath.substr(0, found));
 }
+
+string RMSPlatform::FileName(string filePath)
+{
+	size_t found = filePath.find_last_of("/\\");
+	return (filePath.substr(found+1, filePath.size() - found));
+}

@@ -30,6 +30,14 @@ void RMSRoomView::OnPaint(wxPaintEvent& event)
 	{
 		// draw background black
 		clear(sf::Color(0, 0, 0));
+
+		// Draw each layer of the room.
+		for (unsigned i = 0; i < OpenRoom->GetNumLayers(); i++)
+		{
+			OpenRoom->GetLayer(i)->Draw(*this);
+		}
+
+		// @todo If this layer is selected draw its grid
 	}
 	else
 	{

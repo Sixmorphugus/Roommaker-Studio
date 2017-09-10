@@ -113,16 +113,33 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 			}
 
 			// Read layers
+			{
+				assert(Doc["layers"].IsArray());
+				auto LayersArray = Doc["layers"].GetArray();
 
+				for (unsigned i = 0; i < LayersArray.Size(); i++)
+				{
+					assert(LayersArray[i].IsObject());
+					auto Layer = LayersArray[i].GetObject();
+
+					assert(Layer["modelName"].IsString());
+					string ModelName = Layer["modelName"].GetString();
+
+					// Create generic layers
+					m_Layers.push_back(GMLayer(this, Layer));
+				}
+			}
 
 			// Read views
-			assert(Doc["views"].IsArray());
-			auto ViewsArray = Doc["views"].GetArray();
-
-			for (unsigned i = 0; i < 8; i++)
 			{
-				assert(ViewsArray[i].IsObject());
-				m_Views[i] = GMView(ViewsArray[i].GetObject());
+				assert(Doc["views"].IsArray());
+				auto ViewsArray = Doc["views"].GetArray();
+
+				for (unsigned i = 0; i < 8; i++)
+				{
+					assert(ViewsArray[i].IsObject());
+					m_Views[i] = GMView(ViewsArray[i].GetObject());
+				}
 			}
 		}
 		catch (std::exception &e)
@@ -136,7 +153,7 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 	}
 }
 
-void GMRoom::WriteJson(std::string At)
+void GMRoom::WriteJson(string At)
 {
 
 }
@@ -147,4 +164,12 @@ GMView* GMRoom::GetView(unsigned i)
 		return NULL;
 
 	return &m_Views[i];
+}
+
+GMLayer* GMRoom::GetLayer(unsigned i)
+{
+	if (i >= m_Layers.size())
+		return NULL;
+
+	return &m_Layers[i];
 }

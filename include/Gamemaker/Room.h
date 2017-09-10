@@ -4,6 +4,7 @@
 
 #include "GM.h"
 #include "Room/View.h"
+#include "Room/Layer.h"
 
 #include "SFML/Graphics.hpp"
 
@@ -14,7 +15,7 @@ private:
 	// Room Content
 	std::string m_CreationCode;
 	GMRoom* m_ParentRoom;
-	//std::vector<GMLayer> m_Layers;
+	std::vector<GMLayer> m_Layers;
 	GMView m_Views[8];
 
 	// Physics settings
@@ -54,6 +55,9 @@ public:
 	void SetCreationCode(std::string CreationCode) { m_CreationCode = CreationCode; }
 
 	GMView* GetView(unsigned i);
+
+	unsigned GetNumLayers() { return m_Layers.size(); }
+	GMLayer* GetLayer(unsigned i);
 
 	// Manipulate physics settings
 	bool GetIsPhysicsWorld() { return m_isPhysicsWorld; }

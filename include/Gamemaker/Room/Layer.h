@@ -40,7 +40,7 @@ private:
 public:
 	GMLayer(GMRoom* Room); // default constructor
 
-	virtual void DrawLayer(sf::RenderTarget& Target) {}
+	virtual void Draw(sf::RenderTarget& Target) {}
 
 	std::string GetId() { return m_Id; }
 

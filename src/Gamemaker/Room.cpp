@@ -2,6 +2,8 @@
 
 #include "Room.h"
 
+#include "Room/Layer/BackgroundLayer.h"
+
 #include "rapidjson/document.h"
 
 using namespace std;
@@ -30,6 +32,13 @@ void GMRoom::SetDefaults()
 	m_ViewsClearDisplayBuffer = true;
 	m_ViewsClearBackground = false;
 	m_ViewsInheritSettings = false;
+
+	m_ActiveLayerIndex = 0U;
+
+	for (unsigned i = 0; i < 8; i++)
+	{
+		m_Views[i] = make_shared<GMRView>(this);
+	}
 }
 
 GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
@@ -126,7 +135,10 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 					string ModelName = Layer["modelName"].GetString();
 
 					// Create generic layers
-					m_Layers.push_back(GMLayer(this, Layer));
+					if(ModelName == "GMRBackgroundLayer")
+						m_Layers.push_back(make_shared<GMRBackgroundLayer>(this, Layer));
+					else
+						m_Layers.push_back(make_shared<GMRLayer>(this, Layer));
 				}
 			}
 
@@ -138,7 +150,7 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 				for (unsigned i = 0; i < 8; i++)
 				{
 					assert(ViewsArray[i].IsObject());
-					m_Views[i] = GMView(ViewsArray[i].GetObject());
+					m_Views[i] = make_shared<GMRView>(this, ViewsArray[i].GetObject());
 				}
 			}
 		}
@@ -153,23 +165,36 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 	}
 }
 
-void GMRoom::WriteJson(string At)
-{
-
-}
-
-GMView* GMRoom::GetView(unsigned i)
+GMRView* GMRoom::GetView(unsigned i)
 {
 	if (i >= 8)
 		return NULL;
 
-	return &m_Views[i];
+	return m_Views[i].get();
 }
 
-GMLayer* GMRoom::GetLayer(unsigned i)
+GMRLayer* GMRoom::GetLayer(unsigned i)
 {
 	if (i >= m_Layers.size())
 		return NULL;
 
-	return &m_Layers[i];
+	return m_Layers[i].get();
+}
+
+void GMRoom::SetActiveLayerIndex(unsigned i)
+{
+	m_ActiveLayerIndex = i;
+}
+
+unsigned GMRoom::GetActiveLayerIndex(unsigned i)
+{
+	return m_ActiveLayerIndex;
+}
+
+GMRLayer* GMRoom::GetActiveLayer()
+{
+	if (m_ActiveLayerIndex >= m_Layers.size())
+		return NULL;
+
+	return m_Layers[m_ActiveLayerIndex].get();
 }

@@ -8,6 +8,8 @@
 
 #include "SFML/Graphics.hpp"
 
+#include <memory>
+
 class GMRoom :
 	public GMResource
 {
@@ -15,8 +17,8 @@ private:
 	// Room Content
 	std::string m_CreationCode;
 	GMRoom* m_ParentRoom;
-	std::vector<GMLayer> m_Layers;
-	GMView m_Views[8];
+	std::vector<std::shared_ptr<GMRLayer>> m_Layers;
+	std::shared_ptr<GMRView> m_Views[8];
 
 	// Physics settings
 	bool m_isPhysicsWorld;
@@ -37,6 +39,9 @@ private:
 	bool m_ViewsClearBackground;
 	bool m_ViewsInheritSettings;
 
+	// Editor
+	unsigned m_ActiveLayerIndex;
+
 private:
 	void SetDefaults();
 
@@ -45,7 +50,7 @@ public:
 	GMRoom(GMProject2* Project, std::string Key, std::string DataPath); // Load an existing room
 
 	// Useful operations
-	void WriteJson(std::string At);
+	rapidjson::Document GetJSON();
 
 	// Room stuff
 	GMRoom* GetParentRoom() { return m_ParentRoom; }
@@ -54,10 +59,14 @@ public:
 	std::string GetCreationCode() { return m_CreationCode; }
 	void SetCreationCode(std::string CreationCode) { m_CreationCode = CreationCode; }
 
-	GMView* GetView(unsigned i);
+	GMRView* GetView(unsigned i);
 
 	unsigned GetNumLayers() { return m_Layers.size(); }
-	GMLayer* GetLayer(unsigned i);
+	GMRLayer* GetLayer(unsigned i);
+
+	void SetActiveLayerIndex(unsigned i);
+	unsigned GetActiveLayerIndex(unsigned i);
+	GMRLayer* GetActiveLayer();
 
 	// Manipulate physics settings
 	bool GetIsPhysicsWorld() { return m_isPhysicsWorld; }

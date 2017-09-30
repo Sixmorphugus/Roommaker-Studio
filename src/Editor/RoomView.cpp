@@ -9,6 +9,7 @@ using namespace std;
 
 BEGIN_EVENT_TABLE(RMSRoomView, RMSSFMLCanvas)
 EVT_PAINT(RMSRoomView::OnPaint)
+EVT_UPDATE_UI(wxID_ANY, RMSRoomView::OnUpdateUI)
 END_EVENT_TABLE()
 
 RMSRoomView::RMSRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, const wxPoint& Position /*= wxDefaultPosition*/, const wxSize& Size /*= wxDefaultSize*/, long Style /*= 0*/)
@@ -18,6 +19,28 @@ RMSRoomView::RMSRoomView(wxWindow* Parent /*= NULL*/, wxWindowID Id /*= -1*/, co
 	m_RmsGradientTexture.loadFromFile("base/gradient.png");
 
 	m_RmsGradientTexture.setRepeated(true);
+
+	m_ViewXOffset = 0.f;
+	m_ViewYOffset = 0.f;
+
+	m_LastMouseX = 0;
+	m_LastMouseY = 0;
+
+	m_ViewZoom = 1.f;
+
+	m_ScrollMode = UpDown;
+
+	m_PullingView = false;
+}
+
+sf::View RMSRoomView::GetViewSetup()
+{
+	auto StdView = RMSSFMLCanvas::GetViewSetup();
+
+	StdView.move(m_ViewXOffset, m_ViewYOffset);
+	StdView.zoom(m_ViewZoom);
+
+	return StdView;
 }
 
 void RMSRoomView::OnPaint(wxPaintEvent& event)
@@ -29,13 +52,15 @@ void RMSRoomView::OnPaint(wxPaintEvent& event)
 	if (OpenRoom)
 	{
 		// draw background black
-		clear(sf::Color(0, 0, 0));
+		clear(sf::Color(150, 150, 150));
 
 		// Draw each layer of the room.
 		for (unsigned i = 0; i < OpenRoom->GetNumLayers(); i++)
 		{
 			OpenRoom->GetLayer(i)->Draw(*this);
 		}
+
+		OpenRoom->GetActiveLayer()->DrawActive(*this);
 
 		// @todo If this layer is selected draw its grid
 	}
@@ -65,4 +90,89 @@ void RMSRoomView::OnPaint(wxPaintEvent& event)
 	display();
 	
 	SetDrawMode(false);
+}
+
+void RMSRoomView::OnUpdateUI(wxUpdateUIEvent& event)
+{
+	RMSSFMLCanvas::OnUpdateUI(event);
+
+	GMRoom* OpenRoom = wxGetApp().GetOpenRoom();
+
+	if (OpenRoom)
+	{
+		// detect SFML input
+		sf::Event evt;
+		while (pollEvent(evt))
+		{
+			if (evt.type == sf::Event::KeyPressed)
+			{
+				if (evt.key.code == sf::Keyboard::LShift)
+				{
+					m_ScrollMode = LeftRight;
+				}
+				else if (evt.key.code == sf::Keyboard::LControl)
+				{
+					m_ScrollMode = InOut;
+				}
+			}
+			else if (evt.type == sf::Event::KeyReleased)
+			{
+				if (evt.key.code == sf::Keyboard::LShift || evt.key.code == sf::Keyboard::LControl)
+				{
+					m_ScrollMode = UpDown;
+				}
+			}
+			else if (evt.type == sf::Event::MouseButtonPressed)
+			{
+				if (evt.mouseButton.button == sf::Mouse::Middle)
+				{
+					m_PullingView = true;
+				}
+			}
+			else if (evt.type == sf::Event::MouseButtonReleased)
+			{
+				if (evt.mouseButton.button == sf::Mouse::Middle)
+				{
+					m_PullingView = false;
+				}
+			}
+			else if (evt.type == sf::Event::MouseMoved)
+			{
+				if (m_PullingView)
+				{
+					m_ViewXOffset += (m_LastMouseX - (float)evt.mouseMove.x) * m_ViewZoom;
+					m_ViewYOffset += (m_LastMouseY - (float)evt.mouseMove.y) * m_ViewZoom;
+				}
+
+				m_LastMouseX = evt.mouseMove.x;
+				m_LastMouseY = evt.mouseMove.y;
+			}
+			else if (evt.type == sf::Event::MouseWheelScrolled)
+			{
+				if (m_ScrollMode == UpDown) 
+				{
+					m_ViewYOffset -= evt.mouseWheelScroll.delta * (20 * m_ViewZoom);
+				}
+				else if (m_ScrollMode == LeftRight)
+				{
+					m_ViewXOffset -= evt.mouseWheelScroll.delta * (20 * m_ViewZoom);
+				}
+				else if (m_ScrollMode == InOut)
+				{
+					m_ViewZoom -= evt.mouseWheelScroll.delta > 0 ? .2f : -.2f;
+
+					if (m_ViewZoom < 0.2f) m_ViewZoom = 0.2f;
+					if (m_ViewZoom > 2.0f) m_ViewZoom = 2.0f;
+
+					// @todo move towards where you're zooming to
+				}
+			}
+		}
+	}
+	else
+	{
+		m_ViewXOffset = 0;
+		m_ViewYOffset = 0;
+		m_ViewZoom = 1.f;
+	}
 }

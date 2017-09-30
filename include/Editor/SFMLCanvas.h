@@ -12,12 +12,15 @@ public:
 	virtual ~RMSSFMLCanvas() {};
 	void SetDrawMode(bool onOrOff);
 
-private:
-	DECLARE_EVENT_TABLE()
+protected:
+	virtual sf::View GetViewSetup();
 
 	void OnIdle(wxIdleEvent&);
-	void OnUpdateUi(wxUpdateUIEvent& event);
+	void OnUpdateUI(wxUpdateUIEvent& event);
 	void OnEraseBackground(wxEraseEvent&) {};
+
+private:
+	DECLARE_EVENT_TABLE()
 
 	wxPaintDC* m_DrawLock;
 };

@@ -6,9 +6,11 @@
 
 #include <rapidjson/document.h>
 
-class GMView
+class GMRView
 {
 private:
+	std::string m_Id;
+
 	int m_HBorder;
 	int m_VBorder;
 
@@ -29,12 +31,25 @@ private:
 
 	bool m_Visible;
 
+	class GMObject* m_Object;
+	class GMRoom* m_Room;
+
 private:
 	void SetDefaults();
-	GMView(rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView); // loaded room constructor
 
 public:
-	GMView(); // default constructor
+	GMRView(GMRoom* Room); // default constructor
+	GMRView(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView); // loaded room constructor
+
+	virtual rapidjson::Document GetJSON();
+
+	// Id
+	std::string GetKey() { return m_Id; }
+
+	GMRoom* GetRoom() { return m_Room; }
+
+	GMObject* GetFollowObject() { return m_Object; }
+	void SetFollowObject(GMObject* FollowObject) { m_Object = FollowObject; }
 
 	// Viewport
 	int GetXPort() { return m_XPort; }

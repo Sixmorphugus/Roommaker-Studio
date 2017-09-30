@@ -13,7 +13,7 @@
 BEGIN_EVENT_TABLE(RMSSFMLCanvas, wxControl)
 EVT_IDLE(RMSSFMLCanvas::OnIdle)
 EVT_ERASE_BACKGROUND(RMSSFMLCanvas::OnEraseBackground)
-EVT_UPDATE_UI(wxID_ANY, RMSSFMLCanvas::OnUpdateUi)
+EVT_UPDATE_UI(wxID_ANY, RMSSFMLCanvas::OnUpdateUI)
 END_EVENT_TABLE()
 
 RMSSFMLCanvas::RMSSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Position, const wxSize& Size, long Style) :
@@ -41,21 +41,26 @@ RMSSFMLCanvas::RMSSFMLCanvas(wxWindow* Parent, wxWindowID Id, const wxPoint& Pos
 	m_DrawLock = nullptr;
 }
 
+sf::View RMSSFMLCanvas::GetViewSetup()
+{
+	sf::View ourView = getDefaultView();
+
+	ourView.setSize(GetSize().GetX(), GetSize().GetY());
+	ourView.setCenter(GetSize().GetX() / 2, GetSize().GetY() / 2);
+
+	return ourView;
+}
+
 void RMSSFMLCanvas::OnIdle(wxIdleEvent&)
 {
 	// Send a paint message when the control is idle, to ensure maximum framerate
 	Refresh();
 }
 
-void RMSSFMLCanvas::OnUpdateUi(wxUpdateUIEvent& event)
+void RMSSFMLCanvas::OnUpdateUI(wxUpdateUIEvent& event)
 {
 	// Because of how SFML handles default views, we'll need to make our own for the window element to work properly.
-	sf::View ourView = getDefaultView();
-
-	ourView.setSize(GetSize().GetX(), GetSize().GetY());
-	ourView.setCenter(GetSize().GetX() / 2, GetSize().GetY() / 2);
-
-	setView(ourView);
+	setView(GetViewSetup());
 
 	setSize(sf::Vector2u(GetSize().GetX(), GetSize().GetY()));
 }

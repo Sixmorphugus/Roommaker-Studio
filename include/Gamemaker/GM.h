@@ -3,8 +3,12 @@
 #pragma once
 
 #include "Platform.h"
+#include <SFML/Graphics.hpp>
 
 class GMProject2;
+
+// GMS Definitions/Defaults
+#define EMPTY_GUID "00000000-0000-0000-0000-000000000000"
 
 /*
  GMResourceType
@@ -87,3 +91,10 @@ protected:
 	virtual unsigned GetNumAllResources();
 	virtual GMResource* GetAllResource(unsigned i);
 };
+
+sf::Color DecompressColor(unsigned Color);
+unsigned CompressColor(sf::Color Color);
+std::string GenerateGUID(bool empty = false);
+
+bool RegisterTakenGUID(std::string NewGUID);
+void PurgeTakenGUIDs();

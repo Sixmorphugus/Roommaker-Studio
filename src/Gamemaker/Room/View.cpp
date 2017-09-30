@@ -1,9 +1,15 @@
 // Copyright Chris Sixsmith 2017. All Rights Reserved.
 
 #include "Room/View.h"
+#include "GM.h"
+#include "Object.h"
+#include "Room.h"
+#include "Project2.h"
 
-void GMView::SetDefaults()
+void GMRView::SetDefaults()
 {
+	m_Id = GenerateGUID();
+
 	m_HBorder = 32;
 	m_VBorder = 32;
 
@@ -23,16 +29,24 @@ void GMView::SetDefaults()
 	m_Visible = false;
 
 	m_Inherit = false;
+
+	m_Object = NULL;
 }
 
-GMView::GMView()
+GMRView::GMRView(GMRoom* Room)
 {
+	m_Room = Room;
 	SetDefaults();
 }
 
-GMView::GMView(rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView)
+GMRView::GMRView(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView)
 {
+	m_Room = Room;
 	SetDefaults();
+
+	// not entirely sure how GMS's GUID system works or where it allows duplicates so we don't care if this fails
+	assert(StoredView["id"].IsString());
+	RegisterTakenGUID(StoredView["id"].GetString());
 
 	assert(StoredView["hborder"].IsNumber());
 	m_HBorder = StoredView["hborder"].GetInt();
@@ -67,4 +81,44 @@ GMView::GMView(rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson
 
 	assert(StoredView["inherit"].IsBool());
 	m_Inherit = StoredView["inherit"].GetBool();
+
+	// Find follow object
+	assert(StoredView["objId"].IsString());
+	auto Resource = m_Room->GetProject()->FindResource(StoredView["objId"].GetString());
+	m_Room = dynamic_cast<GMRoom*>(Resource);
+}
+
+rapidjson::Document GMRView::GetJSON()
+{
+	rapidjson::Document StoredView;
+
+	StoredView["id"].SetString(m_Id.c_str(), m_Id.size());
+	StoredView["modelName"] = "GMRView";
+
+	if (m_Object)
+	{
+		StoredView["objId"].SetString(m_Object->GetKey().c_str(), m_Object->GetKey().size());
+	}
+	else
+	{
+		auto guid = GenerateGUID(true);
+		StoredView["objId"].SetString(guid.c_str(), guid.size());
+	}
+
+	StoredView["hborder"] = m_HBorder;
+	StoredView["vborder"] = m_VBorder;
+
+	StoredView["hspeed"] = m_HSpeed;
+	StoredView["vspeed"] = m_VSpeed;
+
+	StoredView["xport"] = m_XPort;
+	StoredView["yport"] = m_YPort;
+	StoredView["wport"] = m_WPort;
+	StoredView["hport"] = m_HPort;
+
+	StoredView["visible"] = m_Visible;
+
+	StoredView["inherit"] = m_Inherit;
+
+	return StoredView;
 }

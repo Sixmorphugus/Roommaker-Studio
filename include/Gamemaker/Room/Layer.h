@@ -7,9 +7,9 @@
 #include <rapidjson/document.h>
 #include <SFML/Graphics.hpp>
 
-class GMLayer
+class GMRLayer
 {
-private:
+protected:
 	std::string m_Id;
 	std::string m_Name;
 	int m_Depth;
@@ -26,7 +26,7 @@ private:
 	bool m_InheritVisibility;
 
 	class GMRoom* m_Room;
-	GMLayer* m_Parent;
+	GMRLayer* m_Parent;
 
 	bool m_SerialiseFrozen;
 	bool m_UserdefinedDepth;
@@ -35,14 +35,16 @@ private:
 
 private:
 	void SetDefaults(GMRoom* Room);
-	GMLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView); // loaded room constructor
 
 public:
-	GMLayer(GMRoom* Room); // default constructor
+	GMRLayer(GMRoom* Room); // default constructor
+	GMRLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredLayer); // loaded room constructor
 
-	virtual void Draw(sf::RenderTarget& Target) {}
+	virtual void Draw(sf::RenderTarget& Target);
+	virtual void DrawActive(sf::RenderTarget& Target);
+	virtual rapidjson::Document GetJSON();
 
-	std::string GetId() { return m_Id; }
+	std::string GetKey() { return m_Id; }
 
 	std::string GetName() { return m_Name; }
 	void SetName(std::string Name) { m_Name = Name; }
@@ -70,7 +72,7 @@ public:
 	void SetInheritsVisibility(bool InheritVisibility) { m_InheritVisibility = InheritVisibility; }
 
 	GMRoom* GetRoom() { return m_Room; }
-	GMLayer* GetParent() { return m_Parent; }
+	GMRLayer* GetParent() { return m_Parent; }
 
 	bool GetDoesSerializeFrozen() { return m_SerialiseFrozen; }
 	void SetDoesSerializeFrozen(bool SerializeFrozen) { m_SerialiseFrozen = SerializeFrozen; }
@@ -80,6 +82,4 @@ public:
 
 	bool GetIsVisible() { return m_Visible; }
 	void SetIsVisible(bool Visible) { m_Visible = Visible; }
-
-	friend GMRoom;
 };

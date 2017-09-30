@@ -3,7 +3,7 @@
 
 void GMRInstanceLayer::SetDefaults(GMRoom* Room)
 {
-
+	// ...
 }
 
 GMRInstanceLayer::GMRInstanceLayer(GMRoom* Room)
@@ -18,20 +18,22 @@ GMRInstanceLayer::GMRInstanceLayer(GMRoom* Room, rapidjson::GenericObject<false,
 	SetDefaults(Room);
 
 	// load instances
+	// ...
 }
 
 rapidjson::Document GMRInstanceLayer::GetJSON()
 {
-	rapidjson::Document d;
+	rapidjson::Document Stored = GMRLayer::GetJSON();
 
 	// save instances
+	// ...
 
-	return d;
+	return Stored;
 }
 
 void GMRInstanceLayer::Draw(sf::RenderTarget& Target)
 {
 	// Draw all instances
-
+	// ...
 }
 

@@ -9,7 +9,7 @@ using namespace std;
 GMSprite::GMSprite(GMProject2* Project, string Key, string DataPath)
 	: GMResource(Project, Key, DataPath)
 {
-
+	m_Frame0.setRepeated(true);
 	m_SpriteSetup.setTexture(m_Frame0);
 
 	string RealPath = GetRealPath();

@@ -3,6 +3,7 @@
 #include "Room.h"
 
 #include "Room/Layer/BackgroundLayer.h"
+#include "Room/Layer/InstanceLayer.h"
 
 #include "rapidjson/document.h"
 
@@ -135,10 +136,19 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 					string ModelName = Layer["modelName"].GetString();
 
 					// Create generic layers
-					if(ModelName == "GMRBackgroundLayer")
+					if (ModelName == "GMRBackgroundLayer")
+					{
 						m_Layers.push_back(make_shared<GMRBackgroundLayer>(this, Layer));
+					}
+					else if (ModelName == "GMRInstanceLayer")
+					{
+						m_Layers.push_back(make_shared<GMRInstanceLayer>(this, Layer));
+					}
 					else
+					{
+						RMS_LogWarn("\t\tUnknown layer type " + ModelName + ", defaulting to GMRLayer");
 						m_Layers.push_back(make_shared<GMRLayer>(this, Layer));
+					}
 				}
 			}
 

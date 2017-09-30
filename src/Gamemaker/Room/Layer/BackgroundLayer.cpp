@@ -82,15 +82,45 @@ GMRBackgroundLayer::GMRBackgroundLayer(GMRoom* Room)
 
 void GMRBackgroundLayer::Draw(sf::RenderTarget& Target)
 {
-	//Target.clear(m_Color);
+	if (m_Sprite)
+	{
+		// sprite based background
+		sf::Sprite sfmlSprite = m_Sprite->ToSfSprite();
+		sf::Texture* sfmlTexture = m_Sprite->GetFrame0Texture();
 
-	sf::RectangleShape outRect;
+		sfmlSprite.setColor(m_Color);
+		sfmlSprite.setPosition(0, 0);
 
-	outRect.setPosition(0, 0);
-	outRect.setSize(sf::Vector2f(GetRoom()->GetWidth(), GetRoom()->GetHeight()));
-	outRect.setFillColor(m_Color);
+		if (m_Stretch)
+		{
+			sfmlSprite.setScale(GetRoom()->GetWidth() / sfmlTexture->getSize().x, GetRoom()->GetHeight() / sfmlTexture->getSize().y);
+		}
 
-	Target.draw(outRect);
+		if (m_HTiled)
+		{
+			sfmlSprite.setScale(1.f, sfmlSprite.getScale().y);
+			sfmlSprite.setTextureRect(sf::IntRect(0, 0, GetRoom()->GetWidth(), sfmlSprite.getTextureRect().height));
+		}
+
+		if (m_VTiled)
+		{
+			sfmlSprite.setScale(sfmlSprite.getScale().x, 1.f);
+			sfmlSprite.setTextureRect(sf::IntRect(0, 0, sfmlSprite.getTextureRect().width, GetRoom()->GetHeight()));
+		}
+
+		Target.draw(sfmlSprite);
+	}
+	else
+	{
+		// solid color background
+		sf::RectangleShape outRect;
+
+		outRect.setPosition(0, 0);
+		outRect.setSize(sf::Vector2f(GetRoom()->GetWidth(), GetRoom()->GetHeight()));
+		outRect.setFillColor(m_Color);
+
+		Target.draw(outRect);
+	}
 }
 
 rapidjson::Document GMRBackgroundLayer::GetJSON()

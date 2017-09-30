@@ -24,6 +24,8 @@ private:
 
 	ScrollMode m_ScrollMode;
 
+	sf::Vector2f CamPos;
+
 public:
 	RMSRoomView(wxWindow* Parent = NULL, wxWindowID Id = -1, const wxPoint& Position = wxDefaultPosition, const wxSize& Size = wxDefaultSize, long Style = 0);
 

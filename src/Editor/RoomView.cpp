@@ -37,8 +37,11 @@ sf::View RMSRoomView::GetViewSetup()
 {
 	auto StdView = RMSSFMLCanvas::GetViewSetup();
 
+	StdView.setCenter(0, 0);
 	StdView.move(m_ViewXOffset, m_ViewYOffset);
 	StdView.zoom(m_ViewZoom);
+
+	CamPos = StdView.getCenter() - sf::Vector2f(StdView.getSize().x / 2, StdView.getSize().y / 2);
 
 	return StdView;
 }
@@ -159,20 +162,30 @@ void RMSRoomView::OnUpdateUI(wxUpdateUIEvent& event)
 				}
 				else if (m_ScrollMode == InOut)
 				{
+					sf::Vector2f mouseWorldBeforeZoom(sf::Vector2f(m_LastMouseX * m_ViewZoom, m_LastMouseY * m_ViewZoom) + CamPos);
+
 					m_ViewZoom -= evt.mouseWheelScroll.delta > 0 ? .2f : -.2f;
 
 					if (m_ViewZoom < 0.2f) m_ViewZoom = 0.2f;
 					if (m_ViewZoom > 2.0f) m_ViewZoom = 2.0f;
+					
+					GetViewSetup(); // hack
 
-					// @todo move towards where you're zooming to
+					sf::Vector2f mouseWorldAfterZoom(sf::Vector2f(m_LastMouseX * m_ViewZoom, m_LastMouseY * m_ViewZoom) + CamPos);
+
+					// move towards where you're zooming to
+					RMS_LogInfo(to_string((mouseWorldBeforeZoom - mouseWorldAfterZoom).x) + " " + to_string((mouseWorldBeforeZoom - mouseWorldAfterZoom).y));
+
+					m_ViewXOffset += (mouseWorldBeforeZoom - mouseWorldAfterZoom).x;
+					m_ViewYOffset += (mouseWorldBeforeZoom - mouseWorldAfterZoom).y;
 				}
 			}
 		}
 	}
 	else
 	{
-		m_ViewXOffset = 0;
-		m_ViewYOffset = 0;
+		m_ViewXOffset = getSize().x / 2;
+		m_ViewYOffset = getSize().y / 2;
 		m_ViewZoom = 1.f;
 	}
 }

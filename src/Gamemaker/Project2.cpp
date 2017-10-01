@@ -145,12 +145,12 @@ GMProject2::GMProject2(string ProjectPath, wxProgressDialog* ProgDlg)
 	}
 }
 
-string GMProject2::GetProjectRoot()
+std::string GMProject2::GetProjectRoot() const
 {
 	return RMSPlatform::Dir(m_ProjectPath);
 }
 
-GMResource* GMProject2::FindResource(std::string m_Key)
+GMResource* GMProject2::FindResource(std::string m_Key) const
 {
 	for (auto& Resource : m_Resources)
 	{
@@ -161,12 +161,12 @@ GMResource* GMProject2::FindResource(std::string m_Key)
 	return nullptr;
 }
 
-unsigned GMProject2::GetNumResources()
+unsigned GMProject2::GetNumResources() const
 {
 	return m_ResourcesTopLevel.size();
 }
 
-GMResource* GMProject2::GetResource(unsigned i)
+GMResource* GMProject2::GetResource(unsigned i) const
 {
 	if (i >= GetNumResources())
 		return NULL;
@@ -174,7 +174,7 @@ GMResource* GMProject2::GetResource(unsigned i)
 	return m_ResourcesTopLevel[i];
 }
 
-void GMProject2::Save()
+void GMProject2::Save() const
 {
 	// Does nothing YET
 }

@@ -17,5 +17,7 @@ public:
 	GMSprite(GMProject2* Project, std::string Key, std::string DataPath);
 
 	sf::Texture* GetFrame0Texture() { return &m_Frame0; }
-	sf::Sprite ToSfSprite() { return m_SpriteSetup; }
+	sf::Sprite ToSfSprite() const { return m_SpriteSetup; }
+
+	static sf::Sprite GetDefaultSfSprite();
 };

@@ -44,16 +44,16 @@ private:
 public:
 	GMResource(GMProject2* Project, std::string Key, std::string DataPath);
 
-	std::string GetKey() { return m_Key; }
-	std::string GetDataPath() { return m_DataPath; }
-	std::string GetName() { return m_Name; }
-	GMProject2* GetProject(); // Just to be safe, this isn't inline.
-	GMResourceContainer* GetParent(); // Same as above
-	virtual GMResourceType GetType() { return Ignored; }
-	virtual GMResourceType GetFilterType() { return GetType(); }
+	std::string GetKey() const { return m_Key; }
+	std::string GetDataPath() const { return m_DataPath; }
+	std::string GetName() const { return m_Name; }
+	GMProject2* GetProject() const; // Just to be safe, this isn't inline.
+	GMResourceContainer* GetParent() const; // Same as above
+	virtual GMResourceType GetType() const { return Ignored; }
+	virtual GMResourceType GetFilterType() const { return GetType(); }
 	virtual void Init() {}
 
-	std::string GetRealPath();
+	std::string GetRealPath() const;
 
 	void SetName(std::string Name) { m_Name = Name; }
 
@@ -77,19 +77,19 @@ private:
 public:
 	GMResourceContainer(GMProject2* Project);
 
-	virtual unsigned GetNumResources() = 0;
-	virtual GMResource* GetResource(unsigned i) = 0;
+	virtual unsigned GetNumResources() const = 0;
+	virtual GMResource* GetResource(unsigned i) const = 0;
 	virtual GMResource* GetResourceByName(std::string Name);
 
 	// Helper for finding if a folder contains something.
-	bool HasChild(GMResource* Memory);
-	bool HasChild(std::string Key);
+	bool HasChild(GMResource* Memory) const;
+	bool HasChild(std::string Key) const;
 
 protected:
 	virtual void Parent(GMResource* Memory);
 
-	virtual unsigned GetNumAllResources();
-	virtual GMResource* GetAllResource(unsigned i);
+	virtual unsigned GetNumAllResources() const;
+	virtual GMResource* GetAllResource(unsigned i) const;
 };
 
 sf::Color DecompressColor(unsigned Color);

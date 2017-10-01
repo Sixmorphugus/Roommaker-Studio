@@ -64,8 +64,6 @@ void RMSRoomView::OnPaint(wxPaintEvent& event)
 		}
 
 		OpenRoom->GetActiveLayer()->DrawActive(*this);
-
-		// @todo If this layer is selected draw its grid
 	}
 	else
 	{

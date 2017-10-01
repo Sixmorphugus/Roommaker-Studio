@@ -122,6 +122,44 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 				m_ViewsInheritSettings = viewSettings["inheritViewSettings"].GetBool();
 			}
 
+			// Read views
+			{
+				assert(Doc["views"].IsArray());
+				auto ViewsArray = Doc["views"].GetArray();
+
+				for (unsigned i = 0; i < 8; i++)
+				{
+					assert(ViewsArray[i].IsObject());
+					m_Views[i] = make_shared<GMRView>(this, ViewsArray[i]);
+				}
+			}
+		}
+		catch (std::exception &e)
+		{
+			RMS_LogWarn("Exception thrown while reading \"" + RealPath + "\": \"" + e.what() + "\"");
+		}
+	}
+	else
+	{
+		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
+	}
+}
+
+void GMRoom::Init()
+{
+	string RealPath = GetRealPath();
+	string JsonData;
+
+	bool Succ = RMSPlatform::LoadTextFile(JsonData, RealPath);
+
+	if (Succ)
+	{
+		try
+		{
+			// Try to read the doc
+			rapidjson::Document Doc;
+			Doc.Parse(JsonData.c_str());
+
 			// Read layers
 			{
 				assert(Doc["layers"].IsArray());
@@ -130,7 +168,7 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 				for (unsigned i = 0; i < LayersArray.Size(); i++)
 				{
 					assert(LayersArray[i].IsObject());
-					auto Layer = LayersArray[i].GetObject();
+					auto& Layer = LayersArray[i];
 
 					assert(Layer["modelName"].IsString());
 					string ModelName = Layer["modelName"].GetString();
@@ -151,18 +189,6 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 					}
 				}
 			}
-
-			// Read views
-			{
-				assert(Doc["views"].IsArray());
-				auto ViewsArray = Doc["views"].GetArray();
-
-				for (unsigned i = 0; i < 8; i++)
-				{
-					assert(ViewsArray[i].IsObject());
-					m_Views[i] = make_shared<GMRView>(this, ViewsArray[i].GetObject());
-				}
-			}
 		}
 		catch (std::exception &e)
 		{
@@ -173,9 +199,21 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 	{
 		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
 	}
+
+	// layers are loaded backwards by default.
+	reverse(m_Layers.begin(), m_Layers.end());
 }
 
-GMRView* GMRoom::GetView(unsigned i)
+rapidjson::Document GMRoom::GetJSON() const
+{
+	rapidjson::Document Stored;
+
+	// TODO
+
+	return Stored;
+}
+
+GMRView* GMRoom::GetView(unsigned i) const
 {
 	if (i >= 8)
 		return NULL;
@@ -183,7 +221,7 @@ GMRView* GMRoom::GetView(unsigned i)
 	return m_Views[i].get();
 }
 
-GMRLayer* GMRoom::GetLayer(unsigned i)
+GMRLayer* GMRoom::GetLayer(unsigned i) const
 {
 	if (i >= m_Layers.size())
 		return NULL;
@@ -196,12 +234,12 @@ void GMRoom::SetActiveLayerIndex(unsigned i)
 	m_ActiveLayerIndex = i;
 }
 
-unsigned GMRoom::GetActiveLayerIndex(unsigned i)
+unsigned GMRoom::GetActiveLayerIndex(unsigned i) const
 {
 	return m_ActiveLayerIndex;
 }
 
-GMRLayer* GMRoom::GetActiveLayer()
+GMRLayer* GMRoom::GetActiveLayer() const
 {
 	if (m_ActiveLayerIndex >= m_Layers.size())
 		return NULL;

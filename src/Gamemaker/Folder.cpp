@@ -115,7 +115,7 @@ void GMFolder::Init()
 	}
 }
 
-GMResource* GMFolder::GetResource(unsigned i)
+GMResource* GMFolder::GetResource(unsigned i) const
 {
 	if (i >= GetNumResources())
 		return NULL;

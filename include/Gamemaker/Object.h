@@ -14,5 +14,5 @@ public:
 	GMObject(GMProject2* Project, std::string Key, std::string DataPath);
 
 	virtual void Init();
-	GMSprite* GetSprite() { return m_Sprite; }
+	GMSprite* GetSprite() const { return m_Sprite; }
 };

@@ -28,18 +28,18 @@ private:
 public:
 	GMProject2(std::string ProjectPath, wxProgressDialog* ProgDlg = NULL);
 
-	std::string GetProjectPath() { return m_ProjectPath; }
-	std::string GetProjectRoot();
-	bool IsValid() { return m_Valid; }
+	std::string GetProjectPath() const { return m_ProjectPath; }
+	std::string GetProjectRoot() const;
+	bool IsValid() const { return m_Valid; }
 
-	GMResource* FindResource(std::string m_Key);
+	GMResource* FindResource(std::string m_Key) const;
 
 	// Begin GMResourceContainer Interface
-	virtual unsigned GetNumResources();
-	virtual GMResource* GetResource(unsigned i);
+	virtual unsigned GetNumResources() const;
+	virtual GMResource* GetResource(unsigned i) const;
 	// End
 
-	void Save();
+	void Save() const;
 
 	friend class GMResourceContainer; // For book-keeping reasons, GMResourceContainer can access the private resource list.
 };

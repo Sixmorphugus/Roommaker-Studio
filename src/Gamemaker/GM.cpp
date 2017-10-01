@@ -19,17 +19,17 @@ GMResource::GMResource(GMProject2* Project, string Key, string DataPath)
 	RegisterTakenGUID(Key);
 }
 
-GMProject2 * GMResource::GetProject()
+GMProject2* GMResource::GetProject() const
 {
 	return m_Project;
 }
 
-GMResourceContainer* GMResource::GetParent()
+GMResourceContainer* GMResource::GetParent() const
 {
 	return m_Parent;
 }
 
-std::string GMResource::GetRealPath()
+std::string GMResource::GetRealPath() const
 {
 	return m_Project->GetProjectRoot() + "/" + m_DataPath;
 }
@@ -53,7 +53,7 @@ GMResource* GMResourceContainer::GetResourceByName(std::string Name)
 	return NULL;
 }
 
-bool GMResourceContainer::HasChild(string Key)
+bool GMResourceContainer::HasChild(string Key) const
 {
 	for (unsigned i = 0; i < GetNumResources(); i++)
 	{
@@ -64,7 +64,7 @@ bool GMResourceContainer::HasChild(string Key)
 	return false;
 }
 
-bool GMResourceContainer::HasChild(GMResource* Memory)
+bool GMResourceContainer::HasChild(GMResource* Memory) const
 {
 	for (unsigned i = 0; i < GetNumResources(); i++)
 	{
@@ -80,12 +80,12 @@ void GMResourceContainer::Parent(GMResource* Memory)
 	Memory->m_Parent = this;
 }
 
-unsigned GMResourceContainer::GetNumAllResources()
+unsigned GMResourceContainer::GetNumAllResources() const
 {
 	return m_Project->m_Resources.size();
 }
 
-GMResource* GMResourceContainer::GetAllResource(unsigned i)
+GMResource* GMResourceContainer::GetAllResource(unsigned i) const
 {
 	if (i >= GetNumAllResources())
 		return NULL;
@@ -125,6 +125,8 @@ std::string GenerateGUID(bool empty /*= false*/)
 
 	// random character for every 0
 	while (!RegisterTakenGUID(GUID)) {
+		GUID = EMPTY_GUID;
+
 		for (unsigned i = 0; i < GUID.size(); i++)
 		{
 			if (GUID[i] == '0')

@@ -39,7 +39,7 @@ GMRView::GMRView(GMRoom* Room)
 	SetDefaults();
 }
 
-GMRView::GMRView(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredView)
+GMRView::GMRView(GMRoom* Room, rapidjson::Value& StoredView)
 {
 	m_Room = Room;
 	SetDefaults();
@@ -88,7 +88,7 @@ GMRView::GMRView(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::Generi
 	m_Room = dynamic_cast<GMRoom*>(Resource);
 }
 
-rapidjson::Document GMRView::GetJSON()
+rapidjson::Document GMRView::GetJSON() const
 {
 	rapidjson::Document StoredView;
 

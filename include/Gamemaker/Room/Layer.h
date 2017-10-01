@@ -38,48 +38,48 @@ private:
 
 public:
 	GMRLayer(GMRoom* Room); // default constructor
-	GMRLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredLayer); // loaded room constructor
+	GMRLayer(GMRoom* Room, rapidjson::Value& StoredLayer); // loaded room constructor
 
-	virtual void Draw(sf::RenderTarget& Target);
+	virtual void Draw(sf::RenderTarget& Target) const;
 	virtual void DrawActive(sf::RenderTarget& Target);
-	virtual rapidjson::Document GetJSON();
+	virtual rapidjson::Document GetJSON() const;
 
-	std::string GetKey() { return m_Id; }
+	std::string GetKey() const { return m_Id; }
 
-	std::string GetName() { return m_Name; }
+	std::string GetName() const { return m_Name; }
 	void SetName(std::string Name) { m_Name = Name; }
 	
-	int GetDepth() { return m_Depth; }
+	int GetDepth() const { return m_Depth; }
 	void SetDepth(int Depth) { m_Depth = Depth; }
 
-	int GetGridX() { return m_GridX; }
+	int GetGridX() const { return m_GridX; }
 	void SetGridX(int GridX) { m_GridX = GridX; }
-	int GetGridY() { return m_GridY; }
+	int GetGridY() const { return m_GridY; }
 	void SetGridY(int GridY) { m_GridY = GridY; }
 
-	bool GetHierarchyIsFrozen() { return m_HierarchyFrozen; }
+	bool GetHierarchyIsFrozen() const { return m_HierarchyFrozen; }
 	void SetHierarchyIsFrozen(bool HierarchyFrozen) { m_HierarchyFrozen = HierarchyFrozen; }
-	bool GetHierarchyVisible() { return m_HierarchyVisible; }
+	bool GetHierarchyVisible() const { return m_HierarchyVisible; }
 	void SetHierarchyVisible(bool HierarchyVisible) { m_HierarchyVisible = HierarchyVisible; }
 
-	bool GetInheritsLayerDepth() { return m_InheritLayerDepth; }
+	bool GetInheritsLayerDepth() const { return m_InheritLayerDepth; }
 	bool GetInheritsLayerSettings() { return m_InheritLayerSettings; }
-	bool GetInheritsSubLayers() { return m_InheritSubLayers; }
-	bool GetInheritsVisibility() { return m_InheritVisibility; }
+	bool GetInheritsSubLayers() const { return m_InheritSubLayers; }
+	bool GetInheritsVisibility() const { return m_InheritVisibility; }
 	void SetInheritsLayerDepth(bool InheritLayerDepth) { m_InheritLayerDepth = InheritLayerDepth; }
 	void SetInheritsLayerSettings(bool InheritsLayerSettings) { m_InheritLayerSettings = InheritsLayerSettings; }
 	void SetInheritsSubLayers(bool InheritSubLayers) { m_InheritSubLayers = InheritSubLayers; }
 	void SetInheritsVisibility(bool InheritVisibility) { m_InheritVisibility = InheritVisibility; }
 
-	GMRoom* GetRoom() { return m_Room; }
-	GMRLayer* GetParent() { return m_Parent; }
+	GMRoom* GetRoom() const { return m_Room; }
+	GMRLayer* GetParent() const { return m_Parent; }
 
-	bool GetDoesSerializeFrozen() { return m_SerialiseFrozen; }
+	bool GetDoesSerializeFrozen() const { return m_SerialiseFrozen; }
 	void SetDoesSerializeFrozen(bool SerializeFrozen) { m_SerialiseFrozen = SerializeFrozen; }
 
-	bool GetIsDepthUserDefined() { return m_UserdefinedDepth; }
+	bool GetIsDepthUserDefined() const { return m_UserdefinedDepth; }
 	void SetIsDepthUserDefined(bool UserdefinedDepth) { m_UserdefinedDepth = UserdefinedDepth; }
 
-	bool GetIsVisible() { return m_Visible; }
+	bool GetIsVisible() const { return m_Visible; }
 	void SetIsVisible(bool Visible) { m_Visible = Visible; }
 };

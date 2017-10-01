@@ -30,7 +30,7 @@ void GMRLayer::SetDefaults(GMRoom* Room)
 	m_Visible = true;
 }
 
-GMRLayer::GMRLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& StoredLayer)
+GMRLayer::GMRLayer(GMRoom* Room, rapidjson::Value& StoredLayer)
 {
 	SetDefaults(Room);
 
@@ -93,7 +93,7 @@ GMRLayer::GMRLayer(GMRoom* Room)
 	SetDefaults(Room);
 }
 
-void GMRLayer::Draw(sf::RenderTarget& Target)
+void GMRLayer::Draw(sf::RenderTarget& Target) const
 {}
 
 void GMRLayer::DrawActive(sf::RenderTarget& Target)
@@ -140,9 +140,11 @@ void GMRLayer::DrawActive(sf::RenderTarget& Target)
 	Target.draw(lines);
 }
 
-rapidjson::Document GMRLayer::GetJSON()
+rapidjson::Document GMRLayer::GetJSON() const
 {
 	rapidjson::Document StoredLayer;
+
+	StoredLayer["mvc"] = "1.0";
 
 	StoredLayer["id"].SetString(m_Id.c_str(), m_Id.size());
 	StoredLayer["name"].SetString(m_Name.c_str(), m_Id.size());

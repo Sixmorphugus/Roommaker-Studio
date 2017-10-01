@@ -18,9 +18,9 @@ public:
 
 	virtual void Init();
 
-	unsigned GetNumResources() { return m_Resources.size(); }
-	GMResource* GetResource(unsigned i);
-	virtual GMResourceType GetType() { return Folder; }
-	virtual GMResourceType GetFilterType() { return m_FilterType; }
+	unsigned GetNumResources() const { return m_Resources.size(); }
+	GMResource* GetResource(unsigned i) const;
+	virtual GMResourceType GetType() const { return Folder; }
+	virtual GMResourceType GetFilterType() const { return m_FilterType; }
 	bool IsDefaultFolder() { return m_DefaultFolder; }
 };

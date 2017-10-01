@@ -25,7 +25,7 @@ void GMRBackgroundLayer::SetDefaults(GMRoom* Room)
 	m_Y = 0;
 }
 
-GMRBackgroundLayer::GMRBackgroundLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& Stored)
+GMRBackgroundLayer::GMRBackgroundLayer(GMRoom* Room, rapidjson::Value& Stored)
 	: GMRLayer(Room, Stored)
 {
 	SetDefaults(Room);
@@ -80,7 +80,7 @@ GMRBackgroundLayer::GMRBackgroundLayer(GMRoom* Room)
 	SetDefaults(Room);
 }
 
-void GMRBackgroundLayer::Draw(sf::RenderTarget& Target)
+void GMRBackgroundLayer::Draw(sf::RenderTarget& Target) const
 {
 	if (m_Sprite)
 	{
@@ -126,6 +126,9 @@ void GMRBackgroundLayer::Draw(sf::RenderTarget& Target)
 rapidjson::Document GMRBackgroundLayer::GetJSON()
 {
 	rapidjson::Document Stored = GMRLayer::GetJSON();
+
+	Stored["__type"] = "GMRBackgroundLayer_Model:#YoYoStudio.MVCFormat";
+	Stored["modelName"] = "GMRInstanceLayer";
 
 	Stored["animationFPS"] = m_AnimationFps;
 	Stored["animationSpeedType"] = m_AnimationSpeedType;

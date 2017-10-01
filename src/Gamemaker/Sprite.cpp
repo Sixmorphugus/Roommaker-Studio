@@ -10,7 +10,6 @@ GMSprite::GMSprite(GMProject2* Project, string Key, string DataPath)
 	: GMResource(Project, Key, DataPath)
 {
 	m_Frame0.setRepeated(true);
-	m_SpriteSetup.setTexture(m_Frame0);
 
 	string RealPath = GetRealPath();
 	string JsonData;
@@ -38,9 +37,9 @@ GMSprite::GMSprite(GMProject2* Project, string Key, string DataPath)
 			assert(JSA.Size() > 0);
 			assert(JSA[0].IsObject());
 
-			std::string Loc = RMSPlatform::Dir(GetRealPath()) + "/" + JSA[0]["id"].GetString();
+			std::string Loc = RMSPlatform::Dir(GetRealPath()) + "/" + JSA[0]["id"].GetString() + ".png";
 
-			m_Frame0.loadFromFile(Loc);
+			assert(m_Frame0.loadFromFile(Loc));
 
 			// Find the origin
 			assert(Doc["xorig"].IsNumber());
@@ -57,4 +56,20 @@ GMSprite::GMSprite(GMProject2* Project, string Key, string DataPath)
 	{
 		RMS_LogWarn("Failed to open file: \"" + RealPath + "\"");
 	}
+
+	m_SpriteSetup.setTexture(m_Frame0);
+}
+
+#include <memory>
+static shared_ptr<sf::Texture> DefaultSpriteTexture;
+
+sf::Sprite GMSprite::GetDefaultSfSprite()
+{
+	if (!DefaultSpriteTexture)
+	{
+		DefaultSpriteTexture = make_shared<sf::Texture>();
+		DefaultSpriteTexture->loadFromFile("base/nosprite.png");
+	}
+
+	return sf::Sprite(*DefaultSpriteTexture.get());
 }

@@ -2,19 +2,27 @@
 
 #pragma once
 #include "Room/Layer.h"
+#include <memory>
+
+class GMRInstance;
 
 class GMRInstanceLayer : public GMRLayer
 {
 private:
-	
+	std::vector<std::shared_ptr<GMRInstance>> m_Instances;
 
 private:
 	void SetDefaults(GMRoom* Room);
 
 public:
 	GMRInstanceLayer(GMRoom* Room); // default constructor
-	GMRInstanceLayer(GMRoom* Room, rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<>>>& Stored); // loaded room constructor
+	GMRInstanceLayer(GMRoom* Room, rapidjson::Value& Stored); // loaded room constructor
 
-	virtual rapidjson::Document GetJSON();
-	virtual void Draw(sf::RenderTarget& Target);
+	virtual rapidjson::Document GetJSON() const;
+	virtual void Draw(sf::RenderTarget& Target) const;
+
+	GMRInstance* GetInstance(unsigned Index) const;
+	GMRInstance* GetInstanceByKey(std::string Key) const;
+	GMRInstance* GetInstanceByName(std::string Name) const;
+	unsigned GetNumInstances() const { return m_Instances.size(); }
 };

@@ -49,16 +49,16 @@ GMRBackgroundLayer::GMRBackgroundLayer(GMRoom* Room, rapidjson::Value& Stored)
 	m_HSpeed = Stored["hspeed"].GetFloat();
 
 	assert(Stored["vspeed"].IsNumber());
-	m_HSpeed = Stored["vspeed"].GetFloat();
+	m_VSpeed = Stored["vspeed"].GetFloat();
 
 	assert(Stored["htiled"].IsBool());
-	m_HSpeed = Stored["htiled"].GetBool();
+	m_HTiled = Stored["htiled"].GetBool();
 
 	assert(Stored["vtiled"].IsBool());
-	m_HSpeed = Stored["vtiled"].GetBool();
+	m_VTiled = Stored["vtiled"].GetBool();
 
 	assert(Stored["stretch"].IsBool());
-	m_HSpeed = Stored["stretch"].GetBool();
+	m_Stretch = Stored["stretch"].GetBool();
 
 	assert(Stored["userdefined_animFPS"].IsBool());
 	m_AnimationFpsIsUserDefined = Stored["userdefined_animFPS"].GetBool();
@@ -88,6 +88,7 @@ void GMRBackgroundLayer::Draw(sf::RenderTarget& Target) const
 		sf::Sprite sfmlSprite = m_Sprite->ToSfSprite();
 		sf::Texture* sfmlTexture = m_Sprite->GetFrame0Texture();
 
+		sfmlSprite.setOrigin(0, 0);
 		sfmlSprite.setColor(m_Color);
 		sfmlSprite.setPosition(0, 0);
 
@@ -95,17 +96,18 @@ void GMRBackgroundLayer::Draw(sf::RenderTarget& Target) const
 		{
 			sfmlSprite.setScale(GetRoom()->GetWidth() / sfmlTexture->getSize().x, GetRoom()->GetHeight() / sfmlTexture->getSize().y);
 		}
+		else {
+			if (m_HTiled)
+			{
+				//sfmlSprite.setScale(1.f, sfmlSprite.getScale().y);
+				sfmlSprite.setTextureRect(sf::IntRect(0, 0, GetRoom()->GetWidth(), sfmlSprite.getTextureRect().height));
+			}
 
-		if (m_HTiled)
-		{
-			sfmlSprite.setScale(1.f, sfmlSprite.getScale().y);
-			sfmlSprite.setTextureRect(sf::IntRect(0, 0, GetRoom()->GetWidth(), sfmlSprite.getTextureRect().height));
-		}
-
-		if (m_VTiled)
-		{
-			sfmlSprite.setScale(sfmlSprite.getScale().x, 1.f);
-			sfmlSprite.setTextureRect(sf::IntRect(0, 0, sfmlSprite.getTextureRect().width, GetRoom()->GetHeight()));
+			if (m_VTiled)
+			{
+				//sfmlSprite.setScale(sfmlSprite.getScale().x, 1.f);
+				sfmlSprite.setTextureRect(sf::IntRect(0, 0, sfmlSprite.getTextureRect().width, GetRoom()->GetHeight()));
+			}
 		}
 
 		Target.draw(sfmlSprite);
@@ -121,6 +123,8 @@ void GMRBackgroundLayer::Draw(sf::RenderTarget& Target) const
 
 		Target.draw(outRect);
 	}
+
+	GMRLayer::Draw(Target);
 }
 
 rapidjson::Document GMRBackgroundLayer::GetJSON()

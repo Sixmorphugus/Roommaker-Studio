@@ -58,5 +58,42 @@ void GMRInstanceLayer::Draw(sf::RenderTarget& Target) const
 	{
 		Inst->Draw(Target);
 	}
+
+	GMRLayer::Draw(Target);
 }
 
+GMRInstance* GMRInstanceLayer::GetInstance(unsigned Index) const
+{
+	if (Index >= GetNumInstances())
+	{
+		return NULL;
+	}
+
+	return m_Instances[Index].get();
+}
+
+GMRInstance* GMRInstanceLayer::GetInstanceByKey(std::string Key) const
+{
+	for (auto& Inst : m_Instances)
+	{
+		if (Inst->GetKey() == Key)
+		{
+			return Inst.get();
+		}
+	}
+
+	return NULL;
+}
+
+GMRInstance* GMRInstanceLayer::GetInstanceByName(std::string Name) const
+{
+	for (auto& Inst : m_Instances)
+	{
+		if (Inst->GetName() == Name)
+		{
+			return Inst.get();
+		}
+	}
+
+	return NULL;
+}

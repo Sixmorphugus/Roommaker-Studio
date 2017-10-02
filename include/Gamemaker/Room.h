@@ -41,7 +41,7 @@ private:
 	bool m_ViewsInheritSettings;
 
 	// Editor
-	unsigned m_ActiveLayerIndex;
+	GMRLayer* m_ActiveLayer;
 
 private:
 	void SetDefaults();
@@ -49,6 +49,8 @@ private:
 public:
 	//GMRoom(GMProject2* Project); // Create a new room
 	GMRoom(GMProject2* Project, std::string Key, std::string DataPath); // Load an existing room
+
+	static std::shared_ptr<GMRLayer> LayerFromJSON(GMRoom* Room, rapidjson::Value& JSON);
 
 	virtual void Init() override;
 
@@ -67,8 +69,7 @@ public:
 	unsigned GetNumLayers() const { return m_Layers.size(); }
 	GMRLayer* GetLayer(unsigned i) const;
 
-	void SetActiveLayerIndex(unsigned i);
-	unsigned GetActiveLayerIndex(unsigned i) const;
+	void SetActiveLayer(GMRLayer* Layer);
 	GMRLayer* GetActiveLayer() const;
 
 	// Manipulate physics settings

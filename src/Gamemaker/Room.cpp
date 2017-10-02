@@ -34,7 +34,7 @@ void GMRoom::SetDefaults()
 	m_ViewsClearBackground = false;
 	m_ViewsInheritSettings = false;
 
-	m_ActiveLayerIndex = 0U;
+	m_ActiveLayer = NULL;
 
 	for (unsigned i = 0; i < 8; i++)
 	{
@@ -145,6 +145,27 @@ GMRoom::GMRoom(GMProject2* Project, string Key, string DataPath)
 	}
 }
 
+std::shared_ptr<GMRLayer> GMRoom::LayerFromJSON(GMRoom* Room, rapidjson::Value& Layer)
+{
+	assert(Layer["modelName"].IsString());
+	string ModelName = Layer["modelName"].GetString();
+
+	// Create generic layers
+	if (ModelName == "GMRBackgroundLayer")
+	{
+		return make_shared<GMRBackgroundLayer>(Room, Layer);
+	}
+	else if (ModelName == "GMRInstanceLayer")
+	{
+		make_shared<GMRInstanceLayer>(Room, Layer);
+	}
+	else
+	{
+		RMS_LogWarn("\t\tUnknown layer type " + ModelName + ", defaulting to GMRLayer");
+		make_shared<GMRLayer>(Room, Layer);
+	}
+}
+
 void GMRoom::Init()
 {
 	string RealPath = GetRealPath();
@@ -170,23 +191,12 @@ void GMRoom::Init()
 					assert(LayersArray[i].IsObject());
 					auto& Layer = LayersArray[i];
 
-					assert(Layer["modelName"].IsString());
-					string ModelName = Layer["modelName"].GetString();
+					m_Layers.push_back(LayerFromJSON(this, Layer));
+				}
 
-					// Create generic layers
-					if (ModelName == "GMRBackgroundLayer")
-					{
-						m_Layers.push_back(make_shared<GMRBackgroundLayer>(this, Layer));
-					}
-					else if (ModelName == "GMRInstanceLayer")
-					{
-						m_Layers.push_back(make_shared<GMRInstanceLayer>(this, Layer));
-					}
-					else
-					{
-						RMS_LogWarn("\t\tUnknown layer type " + ModelName + ", defaulting to GMRLayer");
-						m_Layers.push_back(make_shared<GMRLayer>(this, Layer));
-					}
+				if (m_Layers.size() > 0)
+				{
+					m_ActiveLayer = m_Layers[0].get();
 				}
 			}
 		}
@@ -229,20 +239,13 @@ GMRLayer* GMRoom::GetLayer(unsigned i) const
 	return m_Layers[i].get();
 }
 
-void GMRoom::SetActiveLayerIndex(unsigned i)
+void GMRoom::SetActiveLayer(GMRLayer* Layer)
 {
-	m_ActiveLayerIndex = i;
-}
-
-unsigned GMRoom::GetActiveLayerIndex(unsigned i) const
-{
-	return m_ActiveLayerIndex;
+	assert(Layer->GetRoom() == this);
+	m_ActiveLayer = Layer;
 }
 
 GMRLayer* GMRoom::GetActiveLayer() const
 {
-	if (m_ActiveLayerIndex >= m_Layers.size())
-		return NULL;
-
-	return m_Layers[m_ActiveLayerIndex].get();
+	return m_ActiveLayer;
 }

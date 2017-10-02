@@ -32,6 +32,7 @@ void GMRLayer::SetDefaults(GMRoom* Room)
 
 GMRLayer::GMRLayer(GMRoom* Room, rapidjson::Value& StoredLayer)
 {
+	// load layer info
 	SetDefaults(Room);
 
 	assert(StoredLayer["id"].IsString());
@@ -73,6 +74,24 @@ GMRLayer::GMRLayer(GMRoom* Room, rapidjson::Value& StoredLayer)
 	assert(StoredLayer["visible"].IsBool());
 	m_Visible = StoredLayer["visible"].GetBool();
 
+	// Load child layers
+	{
+		assert(StoredLayer["layers"].IsArray());
+		auto LayersArray = StoredLayer["layers"].GetArray();
+
+		for (unsigned i = 0; i < LayersArray.Size(); i++)
+		{
+			assert(LayersArray[i].IsObject());
+			auto& Layer = LayersArray[i];
+
+			m_ChildLayers.push_back(GMRoom::LayerFromJSON(GetRoom(), Layer));
+
+			m_FolderLayer = true;
+		}
+
+		reverse(m_ChildLayers.begin(), m_ChildLayers.end());
+	}
+
 	// Find the parent layer
 	assert(StoredLayer["m_parentID"].IsString());
 	std::string SearchId = StoredLayer["m_parentID"].GetString();
@@ -94,7 +113,12 @@ GMRLayer::GMRLayer(GMRoom* Room)
 }
 
 void GMRLayer::Draw(sf::RenderTarget& Target) const
-{}
+{
+	for (auto& Layer : m_ChildLayers)
+	{
+		Layer->Draw(Target);
+	}
+}
 
 void GMRLayer::DrawActive(sf::RenderTarget& Target)
 {
@@ -145,6 +169,7 @@ rapidjson::Document GMRLayer::GetJSON() const
 	rapidjson::Document StoredLayer;
 
 	StoredLayer["mvc"] = "1.0";
+	StoredLayer["modelName"] = "GMRLayer";
 
 	StoredLayer["id"].SetString(m_Id.c_str(), m_Id.size());
 	StoredLayer["name"].SetString(m_Name.c_str(), m_Id.size());
@@ -167,6 +192,19 @@ rapidjson::Document GMRLayer::GetJSON() const
 
 	StoredLayer["visible"] = m_Visible;
 
+	// Save sublayers
+	StoredLayer["layers"].SetArray();
+	auto Array = StoredLayer["layers"].GetArray();
+
+	rapidjson::Document::AllocatorType& allocator = StoredLayer.GetAllocator();
+
+	for (auto& Layer : m_ChildLayers)
+	{
+		auto ObjJson = Layer->GetJSON().GetObject();
+		Array.PushBack(ObjJson, allocator);
+	}
+
+	// Save parent
 	if (m_Parent)
 	{
 		StoredLayer["m_parentID"].SetString(m_Parent->GetKey().c_str(), m_Parent->GetKey().size());
@@ -178,4 +216,12 @@ rapidjson::Document GMRLayer::GetJSON() const
 	}
 
 	return StoredLayer;
+}
+
+GMRLayer* GMRLayer::GetSubLayer(unsigned Index) const
+{
+	if (Index >= GetNumSubLayers())
+		return NULL;
+
+	return m_ChildLayers[Index].get();
 }

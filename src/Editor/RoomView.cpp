@@ -55,7 +55,7 @@ void RMSRoomView::OnPaint(wxPaintEvent& event)
 	if (OpenRoom)
 	{
 		// draw background black
-		clear(sf::Color(150, 150, 150));
+		clear(sf::Color(100, 100, 100));
 
 		// Draw each layer of the room.
 		for (unsigned i = 0; i < OpenRoom->GetNumLayers(); i++)

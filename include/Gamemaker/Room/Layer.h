@@ -6,6 +6,7 @@
 
 #include <rapidjson/document.h>
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 class GMRLayer
 {
@@ -24,9 +25,12 @@ protected:
 	bool m_InheritLayerSettings;
 	bool m_InheritSubLayers;
 	bool m_InheritVisibility;
+	bool m_FolderLayer;
 
 	class GMRoom* m_Room;
 	GMRLayer* m_Parent;
+
+	std::vector<std::shared_ptr<GMRLayer>> m_ChildLayers;
 
 	bool m_SerialiseFrozen;
 	bool m_UserdefinedDepth;
@@ -62,6 +66,8 @@ public:
 	bool GetHierarchyVisible() const { return m_HierarchyVisible; }
 	void SetHierarchyVisible(bool HierarchyVisible) { m_HierarchyVisible = HierarchyVisible; }
 
+	bool GetIsFolderLayer(bool FolderLayer) { return m_FolderLayer; }
+
 	bool GetInheritsLayerDepth() const { return m_InheritLayerDepth; }
 	bool GetInheritsLayerSettings() { return m_InheritLayerSettings; }
 	bool GetInheritsSubLayers() const { return m_InheritSubLayers; }
@@ -73,6 +79,9 @@ public:
 
 	GMRoom* GetRoom() const { return m_Room; }
 	GMRLayer* GetParent() const { return m_Parent; }
+
+	unsigned GetNumSubLayers() const { return m_ChildLayers.size(); }
+	GMRLayer* GetSubLayer(unsigned Index) const;
 
 	bool GetDoesSerializeFrozen() const { return m_SerialiseFrozen; }
 	void SetDoesSerializeFrozen(bool SerializeFrozen) { m_SerialiseFrozen = SerializeFrozen; }

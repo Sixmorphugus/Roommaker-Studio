@@ -91,6 +91,10 @@ RMSEditorFrame::RMSEditorFrame()
 
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnViewRoomTree, this, rmsID_ViewRoomTree);
 	Bind(wxEVT_MENU, &RMSEditorFrame::OnViewRoomProperties, this, rmsID_ViewRoomProperties);
+
+	// temp
+	m_AuiManager.GetPane(m_RoomProperties).Hide();
+	m_AuiManager.Update();
 }
 
 RMSEditorFrame::~RMSEditorFrame()

@@ -45,7 +45,7 @@ public:
 	GMRLayer(GMRoom* Room, rapidjson::Value& StoredLayer); // loaded room constructor
 
 	virtual void Draw(sf::RenderTarget& Target) const;
-	virtual void DrawActive(sf::RenderTarget& Target);
+	virtual void DrawActive(sf::RenderTarget& Target) const;
 	virtual rapidjson::Document GetJSON() const;
 
 	std::string GetKey() const { return m_Id; }

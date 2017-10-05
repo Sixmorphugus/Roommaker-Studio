@@ -4,6 +4,8 @@
 
 #include "Room/Layer/BackgroundLayer.h"
 #include "Room/Layer/InstanceLayer.h"
+#include "Room/Layer/AssetLayer.h"
+#include "Room/Layer/TileMapLayer.h"
 
 #include "rapidjson/document.h"
 
@@ -157,12 +159,24 @@ std::shared_ptr<GMRLayer> GMRoom::LayerFromJSON(GMRoom* Room, rapidjson::Value& 
 	}
 	else if (ModelName == "GMRInstanceLayer")
 	{
-		make_shared<GMRInstanceLayer>(Room, Layer);
+		return make_shared<GMRInstanceLayer>(Room, Layer);
+	}
+	else if (ModelName == "GMRAssetLayer")
+	{
+		return make_shared<GMRAssetLayer>(Room, Layer);
+	}
+	else if (ModelName == "GMRTileLayer")
+	{
+		return make_shared<GMRTileMapLayer>(Room, Layer);
+	}
+	else if (ModelName == "GMRLayer")
+	{
+		return make_shared<GMRLayer>(Room, Layer);
 	}
 	else
 	{
 		RMS_LogWarn("\t\tUnknown layer type " + ModelName + ", defaulting to GMRLayer");
-		make_shared<GMRLayer>(Room, Layer);
+		return make_shared<GMRLayer>(Room, Layer);
 	}
 }
 

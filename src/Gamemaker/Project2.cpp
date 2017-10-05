@@ -6,6 +6,7 @@
 #include "Object.h"
 #include "Sprite.h"
 #include "Room.h"
+#include "TileSet.h"
 
 // rapidjson
 #include "rapidjson/document.h"
@@ -219,7 +220,7 @@ void GMProject2::LoadResource(string Key, string RelativePath, GMResourceType Ty
 		NewResource = std::make_shared<GMSprite>(this, Key, RelativePath);
 		break;
 	case TileSet:
-		NewResource = std::make_shared<GMResource>(this, Key, RelativePath);
+		NewResource = std::make_shared<GMTileSet>(this, Key, RelativePath);
 		break;
 	case Folder:
 		NewResource = std::make_shared<GMFolder>(this, Key, RelativePath);

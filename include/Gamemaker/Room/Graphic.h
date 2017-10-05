@@ -27,13 +27,12 @@ private:
 	int m_AnimationFPS;
 	unsigned m_AnimationSpeedType;
 	unsigned m_FrameIndex;
+	bool m_UserDefinedAnimFPS;
 
 	std::string m_Name;
 	std::string m_NameWithNoFileRename;
 
 	sf::Color m_Color;
-
-	std::string m_CreationCode;
 
 	GMSprite* m_OriginalParent;
 	GMSprite* m_Sprite;
@@ -90,9 +89,6 @@ public:
 	sf::Color GetColor() const { return m_Color; }
 	void SetColor(sf::Color val) { m_Color = val; }
 
-	std::string GetCreationCode() const { return m_CreationCode; }
-	void SetCreationCode(std::string val) { m_CreationCode = val; }
-
 	int GetAnimationFPS() const { return m_AnimationFPS; }
 	void SetAnimationFPS(int val) { m_AnimationFPS = val; }
 
@@ -100,4 +96,7 @@ public:
 
 	unsigned GetFrameIndex() const { return m_FrameIndex; }
 	void SetFrameIndex(unsigned val) { m_FrameIndex = val; }
+
+	bool GetHasUserDefinedAnimFPS() const { return m_UserDefinedAnimFPS; }
+	void SetHasUserDefinedAnimFPS(bool val) { m_UserDefinedAnimFPS = val; }
 };

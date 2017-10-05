@@ -29,13 +29,12 @@ void GMRGraphic::SetDefaults(class GMRAssetLayer* GraphicLayer)
 	SetAnimationFPS(15);
 	m_AnimationSpeedType = 0;
 	SetFrameIndex(0);
+	SetHasUserDefinedAnimFPS(false);
 
 	m_Name = GenerateGraphicName();
 	m_NameWithNoFileRename = m_Name;
 
 	SetColor(sf::Color::White);
-
-	SetCreationCode("");
 
 	m_OriginalParent = NULL;
 	m_Sprite = NULL;
@@ -60,7 +59,7 @@ string GMRGraphic::GenerateGraphicName()
 GMRGraphic::GMRGraphic(class GMRAssetLayer* GraphicLayer, GMSprite* Type)
 {
 	SetDefaults(GraphicLayer);
-	SetObject(Type);
+	SetSprite(Type);
 }
 
 GMRGraphic::GMRGraphic(class GMRAssetLayer* GraphicLayer, rapidjson::Value& Stored)
@@ -83,6 +82,9 @@ GMRGraphic::GMRGraphic(class GMRAssetLayer* GraphicLayer, rapidjson::Value& Stor
 
 	assert(Stored["m_serialiseFrozen"].IsBool());
 	m_serialiseFrozen = Stored["m_serialiseFrozen"].GetBool();
+
+	assert(Stored["userdefined_animFPS"].IsBool());
+	m_UserDefinedAnimFPS = Stored["userdefined_animFPS"].GetBool();
 
 	assert(Stored["x"].IsNumber());
 	m_X = Stored["x"].GetFloat();
@@ -121,20 +123,12 @@ GMRGraphic::GMRGraphic(class GMRAssetLayer* GraphicLayer, rapidjson::Value& Stor
 	assert(Stored["name"].IsString());
 	m_Name = Stored["name"].GetString();
 
-	assert(Stored["name_with_no_file_rename"].IsString());
-	m_NameWithNoFileRename = Stored["name_with_no_file_rename"].GetString();
-
-	assert(Stored["objId"].IsString());
+	assert(Stored["spriteId"].IsString());
 	GMResource* FoundResource = m_AssetLayer->GetRoom()->GetProject()->FindResource(Stored["spriteId"].GetString());
 	m_Sprite = dynamic_cast<GMSprite*>(FoundResource);
 
 	assert(Stored["m_originalParentID"].IsString());
-	m_OriginalParent = dynamic_cast<GMObject*>(m_AssetLayer->GetRoom()->GetProject()->FindResource(Stored["m_originalParentID"].GetString()));
-
-	if (Stored["creationCodeFile"].IsString());
-	string CodeFileName = Stored["creationCodeFile"].GetString();
-
-	RMSPlatform::LoadTextFile(m_CreationCode, RMSPlatform::Dir(m_AssetLayer->GetRoom()->GetRealPath()) + "/" + CodeFileName);
+	m_OriginalParent = dynamic_cast<GMSprite*>(m_AssetLayer->GetRoom()->GetProject()->FindResource(Stored["m_originalParentID"].GetString()));
 }
 
 rapidjson::Document GMRGraphic::GetJSON() const
@@ -164,6 +158,7 @@ rapidjson::Document GMRGraphic::GetJSON() const
 	Stored["animationFPS"] = m_AnimationFPS;
 	Stored["frameIndex"] = m_FrameIndex;
 	Stored["animationSpeedType"] = m_AnimationSpeedType;
+	Stored["userdefined_animFPS"] = m_UserDefinedAnimFPS;
 
 	Stored["name"].SetString(m_Name.c_str(), m_Name.size());
 	Stored["name_with_no_file_rename"].SetString(m_NameWithNoFileRename.c_str(), m_NameWithNoFileRename.size());
@@ -188,25 +183,13 @@ rapidjson::Document GMRGraphic::GetJSON() const
 		Stored["m_originalParentID"].SetString(GUID.c_str(), GUID.size());
 	}
 
-	// Save creation code file if there's any
-	if (m_CreationCode != "")
-	{
-		string Filename = "GraphicCreationCode_" + GetName() + ".gml";
-		Stored["creationCodeFile"].SetString(Filename.c_str(), Filename.size());
-		RMSPlatform::SaveTextFile(m_CreationCode, RMSPlatform::Dir(m_AssetLayer->GetRoom()->GetRealPath()) + "/" + Filename);
-	}
-	else
-	{
-		Stored["creationCodeFile"] = "";
-	}
-
 	return Stored;
 }
 
 void GMRGraphic::Draw(sf::RenderTarget& Target) const
 {
 	// Draw the instance wherever it is at the requested position, rotation and scale
-	GMSprite* ObjSprite = m_Sprite->GetSprite();
+	GMSprite* ObjSprite = m_Sprite;
 
 	sf::Sprite sprToDraw = GMSprite::GetDefaultSfSprite();
 

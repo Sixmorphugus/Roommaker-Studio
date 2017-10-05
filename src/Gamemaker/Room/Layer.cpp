@@ -120,7 +120,7 @@ void GMRLayer::Draw(sf::RenderTarget& Target) const
 	}
 }
 
-void GMRLayer::DrawActive(sf::RenderTarget& Target)
+void GMRLayer::DrawActive(sf::RenderTarget& Target) const
 {
 	sf::VertexArray lines(sf::Lines);
 
